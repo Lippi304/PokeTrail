@@ -2,6 +2,12 @@
 
 A browser-based Pokémon roguelike. Pick a Gen-1 starter, fight through randomly generated routes, beat 8 gym leaders, then the Top 4 and Champion in under 45 minutes.
 
+## Live
+
+**Production:** https://poke-trail.vercel.app/
+
+The deployed page must always render the legal disclaimer (FOUND-06). Auto-deploys on every push to `main` via Vercel's GitHub integration.
+
 ## Stack
 
 Vite 6 · React 19.2 · TypeScript 5.7 (strict) · Tailwind v4.2 · Vitest 2 · Zod 3 · Immer 10. State via React Context + `useImmerReducer` (no Redux/Zustand). localStorage persistence (no backend). Engine in `src/engine/**` is pure TypeScript with no React imports (ESLint-enforced).
