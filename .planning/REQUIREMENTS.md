@@ -35,7 +35,7 @@ REQ-IDs follow `[CATEGORY]-[NUMBER]` format. Each requirement is testable, user-
 - [ ] **ENG-03**: `engine/damage.ts` implements the standard damage formula with STAB (×1.5), type effectiveness, modern flat ~1/24 critical hit (×1.5), and a min-damage-1 floor
 - [ ] **ENG-04**: `engine/damage.ts` is covered by a Vitest golden table of ≥20 known matchups derived from Smogon damage calc
 - [ ] **ENG-05**: Move accuracy rolls happen via the seedable RNG with a 70% floor on any move
-- [ ] **ENG-06**: `engine/battleMachine.ts` implements a 9-phase finite state machine: `selecting → resolving → animatingPlayer → animatingEnemy → turnEnd → faintCheck → forceSwitch → enemyFaintReward → battleOver` with an `isLegal(phase, action)` guard
+- [x] **ENG-06**: `engine/battleMachine.ts` implements a 9-phase finite state machine: `selecting → resolving → animatingPlayer → animatingEnemy → turnEnd → faintCheck → forceSwitch → enemyFaintReward → battleOver` with an `isLegal(phase, action)` guard
 - [ ] **ENG-07**: `engine/levelUp.ts` handles XP gain, level-up stat increases, and evolution at the species's evolve level (player can decline)
 - [ ] **ENG-08**: `engine/itemEffects.ts` implements heal items, status cures, X-stat boosters (using the stat-stage system), and held-item end-of-turn hooks
 - [ ] **ENG-09**: `engine/ai.ts` initially selects random legal moves; later upgraded to prioritize type advantage and switch on bad matchups
@@ -239,7 +239,7 @@ Each requirement is mapped to exactly one phase by the roadmapper.
 | ENG-03 | Phase 1 | Pending |
 | ENG-04 | Phase 1 | Pending |
 | ENG-05 | Phase 1 | Pending |
-| ENG-06 | Phase 2 | Pending |
+| ENG-06 | Phase 2 | Complete |
 | ENG-07 | Phase 4 | Pending |
 | ENG-08 | Phase 6 | Pending |
 | ENG-09 | Phase 2 | Pending |
