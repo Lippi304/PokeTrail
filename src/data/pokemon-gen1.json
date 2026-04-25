@@ -1,0 +1,6738 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "special-attack": 65,
+      "special-defense": 65,
+      "speed": 45
+    },
+    "sprite": "/sprites/1.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "leech-seed",
+        "level": 7
+      },
+      {
+        "name": "vine-whip",
+        "level": 13
+      },
+      {
+        "name": "poison-powder",
+        "level": 20
+      },
+      {
+        "name": "razor-leaf",
+        "level": 27
+      },
+      {
+        "name": "growth",
+        "level": 34
+      },
+      {
+        "name": "sleep-powder",
+        "level": 41
+      },
+      {
+        "name": "solar-beam",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 63,
+      "special-attack": 80,
+      "special-defense": 80,
+      "speed": 60
+    },
+    "sprite": "/sprites/2.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leech-seed",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "vine-whip",
+        "level": 13
+      },
+      {
+        "name": "poison-powder",
+        "level": 22
+      },
+      {
+        "name": "razor-leaf",
+        "level": 30
+      },
+      {
+        "name": "growth",
+        "level": 38
+      },
+      {
+        "name": "sleep-powder",
+        "level": 46
+      },
+      {
+        "name": "solar-beam",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "special-attack": 100,
+      "special-defense": 100,
+      "speed": 80
+    },
+    "sprite": "/sprites/3.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leech-seed",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "vine-whip",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 22
+      },
+      {
+        "name": "razor-leaf",
+        "level": 30
+      },
+      {
+        "name": "growth",
+        "level": 43
+      },
+      {
+        "name": "sleep-powder",
+        "level": 55
+      },
+      {
+        "name": "solar-beam",
+        "level": 65
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "charmander",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "special-attack": 60,
+      "special-defense": 50,
+      "speed": 65
+    },
+    "sprite": "/sprites/4.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "ember",
+        "level": 9
+      },
+      {
+        "name": "leer",
+        "level": 15
+      },
+      {
+        "name": "rage",
+        "level": 22
+      },
+      {
+        "name": "slash",
+        "level": 30
+      },
+      {
+        "name": "flamethrower",
+        "level": 38
+      },
+      {
+        "name": "fire-spin",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "charmeleon",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "special-attack": 80,
+      "special-defense": 65,
+      "speed": 80
+    },
+    "sprite": "/sprites/5.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 15
+      },
+      {
+        "name": "rage",
+        "level": 24
+      },
+      {
+        "name": "slash",
+        "level": 33
+      },
+      {
+        "name": "flamethrower",
+        "level": 42
+      },
+      {
+        "name": "fire-spin",
+        "level": 56
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "special-attack": 109,
+      "special-defense": 85,
+      "speed": 100
+    },
+    "sprite": "/sprites/6.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "rage",
+        "level": 24
+      },
+      {
+        "name": "slash",
+        "level": 36
+      },
+      {
+        "name": "flamethrower",
+        "level": 46
+      },
+      {
+        "name": "fire-spin",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "squirtle",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "special-attack": 50,
+      "special-defense": 64,
+      "speed": 43
+    },
+    "sprite": "/sprites/7.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "bubble",
+        "level": 8
+      },
+      {
+        "name": "water-gun",
+        "level": 15
+      },
+      {
+        "name": "bite",
+        "level": 22
+      },
+      {
+        "name": "withdraw",
+        "level": 28
+      },
+      {
+        "name": "skull-bash",
+        "level": 35
+      },
+      {
+        "name": "hydro-pump",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "wartortle",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "special-attack": 65,
+      "special-defense": 80,
+      "speed": 58
+    },
+    "sprite": "/sprites/8.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 15
+      },
+      {
+        "name": "bite",
+        "level": 24
+      },
+      {
+        "name": "withdraw",
+        "level": 31
+      },
+      {
+        "name": "skull-bash",
+        "level": 39
+      },
+      {
+        "name": "hydro-pump",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "blastoise",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "special-attack": 85,
+      "special-defense": 105,
+      "speed": 78
+    },
+    "sprite": "/sprites/9.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "bite",
+        "level": 24
+      },
+      {
+        "name": "withdraw",
+        "level": 31
+      },
+      {
+        "name": "skull-bash",
+        "level": 42
+      },
+      {
+        "name": "hydro-pump",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "caterpie",
+    "types": [
+      "bug"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "special-attack": 20,
+      "special-defense": 20,
+      "speed": 45
+    },
+    "sprite": "/sprites/10.png",
+    "levelUpMoves": [
+      {
+        "name": "string-shot",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "metapod",
+    "types": [
+      "bug"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "special-attack": 25,
+      "special-defense": 25,
+      "speed": 30
+    },
+    "sprite": "/sprites/11.png",
+    "levelUpMoves": [
+      {
+        "name": "harden",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "butterfree",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 45,
+      "defense": 50,
+      "special-attack": 90,
+      "special-defense": 80,
+      "speed": 70
+    },
+    "sprite": "/sprites/12.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      },
+      {
+        "name": "stun-spore",
+        "level": 16
+      },
+      {
+        "name": "sleep-powder",
+        "level": 17
+      },
+      {
+        "name": "supersonic",
+        "level": 21
+      },
+      {
+        "name": "whirlwind",
+        "level": 26
+      },
+      {
+        "name": "psybeam",
+        "level": 32
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "special-attack": 20,
+      "special-defense": 20,
+      "speed": 50
+    },
+    "sprite": "/sprites/13.png",
+    "levelUpMoves": [
+      {
+        "name": "poison-sting",
+        "level": 1
+      },
+      {
+        "name": "string-shot",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "kakuna",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "special-attack": 25,
+      "special-defense": 25,
+      "speed": 35
+    },
+    "sprite": "/sprites/14.png",
+    "levelUpMoves": [
+      {
+        "name": "harden",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 40,
+      "special-attack": 45,
+      "special-defense": 80,
+      "speed": 75
+    },
+    "sprite": "/sprites/15.png",
+    "levelUpMoves": [
+      {
+        "name": "fury-attack",
+        "level": 1
+      },
+      {
+        "name": "focus-energy",
+        "level": 16
+      },
+      {
+        "name": "twineedle",
+        "level": 20
+      },
+      {
+        "name": "rage",
+        "level": 25
+      },
+      {
+        "name": "pin-missile",
+        "level": 30
+      },
+      {
+        "name": "agility",
+        "level": 35
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "special-attack": 35,
+      "special-defense": 35,
+      "speed": 56
+    },
+    "sprite": "/sprites/16.png",
+    "levelUpMoves": [
+      {
+        "name": "gust",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 5
+      },
+      {
+        "name": "quick-attack",
+        "level": 12
+      },
+      {
+        "name": "whirlwind",
+        "level": 19
+      },
+      {
+        "name": "wing-attack",
+        "level": 28
+      },
+      {
+        "name": "agility",
+        "level": 36
+      },
+      {
+        "name": "mirror-move",
+        "level": 44
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "special-attack": 50,
+      "special-defense": 50,
+      "speed": 71
+    },
+    "sprite": "/sprites/17.png",
+    "levelUpMoves": [
+      {
+        "name": "gust",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 12
+      },
+      {
+        "name": "whirlwind",
+        "level": 21
+      },
+      {
+        "name": "wing-attack",
+        "level": 31
+      },
+      {
+        "name": "agility",
+        "level": 40
+      },
+      {
+        "name": "mirror-move",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 83,
+      "attack": 80,
+      "defense": 75,
+      "special-attack": 70,
+      "special-defense": 70,
+      "speed": 101
+    },
+    "sprite": "/sprites/18.png",
+    "levelUpMoves": [
+      {
+        "name": "gust",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "whirlwind",
+        "level": 21
+      },
+      {
+        "name": "wing-attack",
+        "level": 31
+      },
+      {
+        "name": "agility",
+        "level": 44
+      },
+      {
+        "name": "mirror-move",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "rattata",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "special-attack": 25,
+      "special-defense": 35,
+      "speed": 72
+    },
+    "sprite": "/sprites/19.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 7
+      },
+      {
+        "name": "hyper-fang",
+        "level": 14
+      },
+      {
+        "name": "focus-energy",
+        "level": 23
+      },
+      {
+        "name": "super-fang",
+        "level": 34
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "raticate",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60,
+      "special-attack": 50,
+      "special-defense": 70,
+      "speed": 97
+    },
+    "sprite": "/sprites/20.png",
+    "levelUpMoves": [
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "hyper-fang",
+        "level": 14
+      },
+      {
+        "name": "focus-energy",
+        "level": 27
+      },
+      {
+        "name": "super-fang",
+        "level": 41
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "special-attack": 31,
+      "special-defense": 31,
+      "speed": 70
+    },
+    "sprite": "/sprites/21.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 9
+      },
+      {
+        "name": "fury-attack",
+        "level": 15
+      },
+      {
+        "name": "mirror-move",
+        "level": 22
+      },
+      {
+        "name": "drill-peck",
+        "level": 29
+      },
+      {
+        "name": "agility",
+        "level": 36
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "fearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 65,
+      "special-attack": 61,
+      "special-defense": 61,
+      "speed": 100
+    },
+    "sprite": "/sprites/22.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "fury-attack",
+        "level": 15
+      },
+      {
+        "name": "mirror-move",
+        "level": 25
+      },
+      {
+        "name": "drill-peck",
+        "level": 34
+      },
+      {
+        "name": "agility",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "ekans",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44,
+      "special-attack": 40,
+      "special-defense": 54,
+      "speed": 55
+    },
+    "sprite": "/sprites/23.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 10
+      },
+      {
+        "name": "bite",
+        "level": 17
+      },
+      {
+        "name": "glare",
+        "level": 24
+      },
+      {
+        "name": "screech",
+        "level": 31
+      },
+      {
+        "name": "acid",
+        "level": 38
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "arbok",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 69,
+      "special-attack": 65,
+      "special-defense": 79,
+      "speed": 80
+    },
+    "sprite": "/sprites/24.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "bite",
+        "level": 17
+      },
+      {
+        "name": "glare",
+        "level": 27
+      },
+      {
+        "name": "screech",
+        "level": 36
+      },
+      {
+        "name": "acid",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "pikachu",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "special-attack": 50,
+      "special-defense": 50,
+      "speed": 90
+    },
+    "sprite": "/sprites/25.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 1
+      },
+      {
+        "name": "thunder-wave",
+        "level": 9
+      },
+      {
+        "name": "quick-attack",
+        "level": 16
+      },
+      {
+        "name": "swift",
+        "level": 26
+      },
+      {
+        "name": "agility",
+        "level": 33
+      },
+      {
+        "name": "thunder",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "raichu",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "special-attack": 90,
+      "special-defense": 80,
+      "speed": 110
+    },
+    "sprite": "/sprites/26.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 1
+      },
+      {
+        "name": "thunder-wave",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "sandshrew",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "special-attack": 20,
+      "special-defense": 30,
+      "speed": 40
+    },
+    "sprite": "/sprites/27.png",
+    "levelUpMoves": [
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 10
+      },
+      {
+        "name": "slash",
+        "level": 17
+      },
+      {
+        "name": "poison-sting",
+        "level": 24
+      },
+      {
+        "name": "swift",
+        "level": 31
+      },
+      {
+        "name": "fury-swipes",
+        "level": 38
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "sandslash",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110,
+      "special-attack": 45,
+      "special-defense": 55,
+      "speed": 65
+    },
+    "sprite": "/sprites/28.png",
+    "levelUpMoves": [
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "slash",
+        "level": 17
+      },
+      {
+        "name": "poison-sting",
+        "level": 27
+      },
+      {
+        "name": "swift",
+        "level": 36
+      },
+      {
+        "name": "fury-swipes",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "nidoran-f",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "special-attack": 40,
+      "special-defense": 40,
+      "speed": 41
+    },
+    "sprite": "/sprites/29.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 8
+      },
+      {
+        "name": "poison-sting",
+        "level": 14
+      },
+      {
+        "name": "tail-whip",
+        "level": 21
+      },
+      {
+        "name": "bite",
+        "level": 29
+      },
+      {
+        "name": "fury-swipes",
+        "level": 36
+      },
+      {
+        "name": "double-kick",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "nidorina",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 62,
+      "defense": 67,
+      "special-attack": 55,
+      "special-defense": 55,
+      "speed": 56
+    },
+    "sprite": "/sprites/30.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 14
+      },
+      {
+        "name": "tail-whip",
+        "level": 23
+      },
+      {
+        "name": "bite",
+        "level": 32
+      },
+      {
+        "name": "fury-swipes",
+        "level": 41
+      },
+      {
+        "name": "double-kick",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "nidoqueen",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 92,
+      "defense": 87,
+      "special-attack": 75,
+      "special-defense": 85,
+      "speed": 76
+    },
+    "sprite": "/sprites/31.png",
+    "levelUpMoves": [
+      {
+        "name": "body-slam",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 14
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "nidoran-m",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "special-attack": 40,
+      "special-defense": 40,
+      "speed": 50
+    },
+    "sprite": "/sprites/32.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "horn-attack",
+        "level": 8
+      },
+      {
+        "name": "poison-sting",
+        "level": 14
+      },
+      {
+        "name": "focus-energy",
+        "level": 21
+      },
+      {
+        "name": "fury-attack",
+        "level": 29
+      },
+      {
+        "name": "horn-drill",
+        "level": 36
+      },
+      {
+        "name": "double-kick",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "nidorino",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 61,
+      "attack": 72,
+      "defense": 57,
+      "special-attack": 55,
+      "special-defense": 55,
+      "speed": 65
+    },
+    "sprite": "/sprites/33.png",
+    "levelUpMoves": [
+      {
+        "name": "horn-attack",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 14
+      },
+      {
+        "name": "focus-energy",
+        "level": 23
+      },
+      {
+        "name": "fury-attack",
+        "level": 32
+      },
+      {
+        "name": "horn-drill",
+        "level": 41
+      },
+      {
+        "name": "double-kick",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "nidoking",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 81,
+      "attack": 102,
+      "defense": 77,
+      "special-attack": 85,
+      "special-defense": 75,
+      "speed": 85
+    },
+    "sprite": "/sprites/34.png",
+    "levelUpMoves": [
+      {
+        "name": "horn-attack",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "thrash",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "clefairy",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 45,
+      "defense": 48,
+      "special-attack": 60,
+      "special-defense": 65,
+      "speed": 35
+    },
+    "sprite": "/sprites/35.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "sing",
+        "level": 13
+      },
+      {
+        "name": "double-slap",
+        "level": 18
+      },
+      {
+        "name": "minimize",
+        "level": 24
+      },
+      {
+        "name": "metronome",
+        "level": 31
+      },
+      {
+        "name": "defense-curl",
+        "level": 39
+      },
+      {
+        "name": "light-screen",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "clefable",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 73,
+      "special-attack": 95,
+      "special-defense": 90,
+      "speed": 60
+    },
+    "sprite": "/sprites/36.png",
+    "levelUpMoves": [
+      {
+        "name": "double-slap",
+        "level": 1
+      },
+      {
+        "name": "metronome",
+        "level": 1
+      },
+      {
+        "name": "minimize",
+        "level": 1
+      },
+      {
+        "name": "sing",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "vulpix",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 38,
+      "attack": 41,
+      "defense": 40,
+      "special-attack": 50,
+      "special-defense": 65,
+      "speed": 65
+    },
+    "sprite": "/sprites/37.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 16
+      },
+      {
+        "name": "roar",
+        "level": 21
+      },
+      {
+        "name": "confuse-ray",
+        "level": 28
+      },
+      {
+        "name": "flamethrower",
+        "level": 35
+      },
+      {
+        "name": "fire-spin",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "ninetales",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "special-attack": 81,
+      "special-defense": 100,
+      "speed": 100
+    },
+    "sprite": "/sprites/38.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "roar",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "jigglypuff",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 115,
+      "attack": 45,
+      "defense": 20,
+      "special-attack": 45,
+      "special-defense": 25,
+      "speed": 20
+    },
+    "sprite": "/sprites/39.png",
+    "levelUpMoves": [
+      {
+        "name": "sing",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 9
+      },
+      {
+        "name": "disable",
+        "level": 14
+      },
+      {
+        "name": "defense-curl",
+        "level": 19
+      },
+      {
+        "name": "double-slap",
+        "level": 24
+      },
+      {
+        "name": "rest",
+        "level": 29
+      },
+      {
+        "name": "body-slam",
+        "level": 34
+      },
+      {
+        "name": "double-edge",
+        "level": 39
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "wigglytuff",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 140,
+      "attack": 70,
+      "defense": 45,
+      "special-attack": 85,
+      "special-defense": 50,
+      "speed": 45
+    },
+    "sprite": "/sprites/40.png",
+    "levelUpMoves": [
+      {
+        "name": "defense-curl",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "double-slap",
+        "level": 1
+      },
+      {
+        "name": "sing",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "special-attack": 30,
+      "special-defense": 40,
+      "speed": 55
+    },
+    "sprite": "/sprites/41.png",
+    "levelUpMoves": [
+      {
+        "name": "leech-life",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 10
+      },
+      {
+        "name": "bite",
+        "level": 15
+      },
+      {
+        "name": "confuse-ray",
+        "level": 21
+      },
+      {
+        "name": "wing-attack",
+        "level": 28
+      },
+      {
+        "name": "haze",
+        "level": 36
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "golbat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 70,
+      "special-attack": 65,
+      "special-defense": 75,
+      "speed": 90
+    },
+    "sprite": "/sprites/42.png",
+    "levelUpMoves": [
+      {
+        "name": "bite",
+        "level": 1
+      },
+      {
+        "name": "leech-life",
+        "level": 1
+      },
+      {
+        "name": "screech",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 10
+      },
+      {
+        "name": "confuse-ray",
+        "level": 21
+      },
+      {
+        "name": "wing-attack",
+        "level": 32
+      },
+      {
+        "name": "haze",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "special-attack": 75,
+      "special-defense": 65,
+      "speed": 30
+    },
+    "sprite": "/sprites/43.png",
+    "levelUpMoves": [
+      {
+        "name": "absorb",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      },
+      {
+        "name": "stun-spore",
+        "level": 17
+      },
+      {
+        "name": "sleep-powder",
+        "level": 19
+      },
+      {
+        "name": "acid",
+        "level": 24
+      },
+      {
+        "name": "petal-dance",
+        "level": 33
+      },
+      {
+        "name": "solar-beam",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 70,
+      "special-attack": 85,
+      "special-defense": 75,
+      "speed": 40
+    },
+    "sprite": "/sprites/44.png",
+    "levelUpMoves": [
+      {
+        "name": "absorb",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 1
+      },
+      {
+        "name": "sleep-powder",
+        "level": 19
+      },
+      {
+        "name": "acid",
+        "level": 28
+      },
+      {
+        "name": "petal-dance",
+        "level": 38
+      },
+      {
+        "name": "solar-beam",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 85,
+      "special-attack": 110,
+      "special-defense": 90,
+      "speed": 50
+    },
+    "sprite": "/sprites/45.png",
+    "levelUpMoves": [
+      {
+        "name": "acid",
+        "level": 1
+      },
+      {
+        "name": "petal-dance",
+        "level": 1
+      },
+      {
+        "name": "sleep-powder",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "special-attack": 45,
+      "special-defense": 55,
+      "speed": 25
+    },
+    "sprite": "/sprites/46.png",
+    "levelUpMoves": [
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 13
+      },
+      {
+        "name": "leech-life",
+        "level": 20
+      },
+      {
+        "name": "spore",
+        "level": 27
+      },
+      {
+        "name": "slash",
+        "level": 34
+      },
+      {
+        "name": "growth",
+        "level": 41
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "parasect",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "special-attack": 60,
+      "special-defense": 80,
+      "speed": 30
+    },
+    "sprite": "/sprites/47.png",
+    "levelUpMoves": [
+      {
+        "name": "leech-life",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 1
+      },
+      {
+        "name": "spore",
+        "level": 30
+      },
+      {
+        "name": "slash",
+        "level": 39
+      },
+      {
+        "name": "growth",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "special-attack": 40,
+      "special-defense": 55,
+      "speed": 45
+    },
+    "sprite": "/sprites/48.png",
+    "levelUpMoves": [
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 24
+      },
+      {
+        "name": "leech-life",
+        "level": 27
+      },
+      {
+        "name": "stun-spore",
+        "level": 30
+      },
+      {
+        "name": "psybeam",
+        "level": 35
+      },
+      {
+        "name": "sleep-powder",
+        "level": 38
+      },
+      {
+        "name": "psychic",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 65,
+      "defense": 60,
+      "special-attack": 90,
+      "special-defense": 75,
+      "speed": 90
+    },
+    "sprite": "/sprites/49.png",
+    "levelUpMoves": [
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "leech-life",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 30
+      },
+      {
+        "name": "psybeam",
+        "level": 38
+      },
+      {
+        "name": "sleep-powder",
+        "level": 43
+      },
+      {
+        "name": "psychic",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "diglett",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 10,
+      "attack": 55,
+      "defense": 25,
+      "special-attack": 35,
+      "special-defense": 45,
+      "speed": 95
+    },
+    "sprite": "/sprites/50.png",
+    "levelUpMoves": [
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 15
+      },
+      {
+        "name": "dig",
+        "level": 19
+      },
+      {
+        "name": "sand-attack",
+        "level": 24
+      },
+      {
+        "name": "slash",
+        "level": 31
+      },
+      {
+        "name": "earthquake",
+        "level": 40
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "dugtrio",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "special-attack": 50,
+      "special-defense": 70,
+      "speed": 120
+    },
+    "sprite": "/sprites/51.png",
+    "levelUpMoves": [
+      {
+        "name": "dig",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 24
+      },
+      {
+        "name": "slash",
+        "level": 35
+      },
+      {
+        "name": "earthquake",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "meowth",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "special-attack": 40,
+      "special-defense": 40,
+      "speed": 90
+    },
+    "sprite": "/sprites/52.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "bite",
+        "level": 12
+      },
+      {
+        "name": "pay-day",
+        "level": 17
+      },
+      {
+        "name": "screech",
+        "level": 24
+      },
+      {
+        "name": "fury-swipes",
+        "level": 33
+      },
+      {
+        "name": "slash",
+        "level": 44
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "persian",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 70,
+      "defense": 60,
+      "special-attack": 65,
+      "special-defense": 65,
+      "speed": 115
+    },
+    "sprite": "/sprites/53.png",
+    "levelUpMoves": [
+      {
+        "name": "bite",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "screech",
+        "level": 1
+      },
+      {
+        "name": "pay-day",
+        "level": 17
+      },
+      {
+        "name": "fury-swipes",
+        "level": 37
+      },
+      {
+        "name": "slash",
+        "level": 51
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "psyduck",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "special-attack": 65,
+      "special-defense": 50,
+      "speed": 55
+    },
+    "sprite": "/sprites/54.png",
+    "levelUpMoves": [
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 28
+      },
+      {
+        "name": "disable",
+        "level": 31
+      },
+      {
+        "name": "confusion",
+        "level": 36
+      },
+      {
+        "name": "fury-swipes",
+        "level": 43
+      },
+      {
+        "name": "hydro-pump",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "golduck",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "special-attack": 95,
+      "special-defense": 80,
+      "speed": 85
+    },
+    "sprite": "/sprites/55.png",
+    "levelUpMoves": [
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "confusion",
+        "level": 39
+      },
+      {
+        "name": "fury-swipes",
+        "level": 48
+      },
+      {
+        "name": "hydro-pump",
+        "level": 59
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "mankey",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 35,
+      "special-attack": 35,
+      "special-defense": 45,
+      "speed": 70
+    },
+    "sprite": "/sprites/56.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "karate-chop",
+        "level": 15
+      },
+      {
+        "name": "fury-swipes",
+        "level": 21
+      },
+      {
+        "name": "focus-energy",
+        "level": 27
+      },
+      {
+        "name": "seismic-toss",
+        "level": 33
+      },
+      {
+        "name": "thrash",
+        "level": 39
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "primeape",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 105,
+      "defense": 60,
+      "special-attack": 60,
+      "special-defense": 70,
+      "speed": 95
+    },
+    "sprite": "/sprites/57.png",
+    "levelUpMoves": [
+      {
+        "name": "fury-swipes",
+        "level": 1
+      },
+      {
+        "name": "karate-chop",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "focus-energy",
+        "level": 27
+      },
+      {
+        "name": "seismic-toss",
+        "level": 37
+      },
+      {
+        "name": "thrash",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "growlithe",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "special-attack": 70,
+      "special-defense": 50,
+      "speed": 60
+    },
+    "sprite": "/sprites/58.png",
+    "levelUpMoves": [
+      {
+        "name": "bite",
+        "level": 1
+      },
+      {
+        "name": "roar",
+        "level": 1
+      },
+      {
+        "name": "ember",
+        "level": 18
+      },
+      {
+        "name": "leer",
+        "level": 23
+      },
+      {
+        "name": "take-down",
+        "level": 30
+      },
+      {
+        "name": "agility",
+        "level": 39
+      },
+      {
+        "name": "flamethrower",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "arcanine",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 110,
+      "defense": 80,
+      "special-attack": 100,
+      "special-defense": 80,
+      "speed": 95
+    },
+    "sprite": "/sprites/59.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "roar",
+        "level": 1
+      },
+      {
+        "name": "take-down",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "poliwag",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 40,
+      "special-attack": 40,
+      "special-defense": 40,
+      "speed": 90
+    },
+    "sprite": "/sprites/60.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 16
+      },
+      {
+        "name": "water-gun",
+        "level": 19
+      },
+      {
+        "name": "double-slap",
+        "level": 25
+      },
+      {
+        "name": "body-slam",
+        "level": 31
+      },
+      {
+        "name": "amnesia",
+        "level": 38
+      },
+      {
+        "name": "hydro-pump",
+        "level": 45
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "poliwhirl",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 65,
+      "special-attack": 50,
+      "special-defense": 50,
+      "speed": 90
+    },
+    "sprite": "/sprites/61.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "double-slap",
+        "level": 26
+      },
+      {
+        "name": "body-slam",
+        "level": 33
+      },
+      {
+        "name": "amnesia",
+        "level": 41
+      },
+      {
+        "name": "hydro-pump",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "poliwrath",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 95,
+      "special-attack": 70,
+      "special-defense": 90,
+      "speed": 70
+    },
+    "sprite": "/sprites/62.png",
+    "levelUpMoves": [
+      {
+        "name": "body-slam",
+        "level": 1
+      },
+      {
+        "name": "double-slap",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "abra",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "special-attack": 105,
+      "special-defense": 55,
+      "speed": 90
+    },
+    "sprite": "/sprites/63.png",
+    "levelUpMoves": [
+      {
+        "name": "teleport",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "kadabra",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "special-attack": 120,
+      "special-defense": 70,
+      "speed": 105
+    },
+    "sprite": "/sprites/64.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "teleport",
+        "level": 1
+      },
+      {
+        "name": "psybeam",
+        "level": 27
+      },
+      {
+        "name": "recover",
+        "level": 31
+      },
+      {
+        "name": "psychic",
+        "level": 38
+      },
+      {
+        "name": "reflect",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "alakazam",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "special-attack": 135,
+      "special-defense": 95,
+      "speed": 120
+    },
+    "sprite": "/sprites/65.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "teleport",
+        "level": 1
+      },
+      {
+        "name": "psybeam",
+        "level": 27
+      },
+      {
+        "name": "recover",
+        "level": 31
+      },
+      {
+        "name": "psychic",
+        "level": 38
+      },
+      {
+        "name": "reflect",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "machop",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 50,
+      "special-attack": 35,
+      "special-defense": 35,
+      "speed": 35
+    },
+    "sprite": "/sprites/66.png",
+    "levelUpMoves": [
+      {
+        "name": "karate-chop",
+        "level": 1
+      },
+      {
+        "name": "low-kick",
+        "level": 20
+      },
+      {
+        "name": "leer",
+        "level": 25
+      },
+      {
+        "name": "focus-energy",
+        "level": 32
+      },
+      {
+        "name": "seismic-toss",
+        "level": 39
+      },
+      {
+        "name": "submission",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "machoke",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "special-attack": 50,
+      "special-defense": 60,
+      "speed": 45
+    },
+    "sprite": "/sprites/67.png",
+    "levelUpMoves": [
+      {
+        "name": "karate-chop",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "low-kick",
+        "level": 1
+      },
+      {
+        "name": "focus-energy",
+        "level": 36
+      },
+      {
+        "name": "seismic-toss",
+        "level": 44
+      },
+      {
+        "name": "submission",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "machamp",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 130,
+      "defense": 80,
+      "special-attack": 65,
+      "special-defense": 85,
+      "speed": 55
+    },
+    "sprite": "/sprites/68.png",
+    "levelUpMoves": [
+      {
+        "name": "karate-chop",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "low-kick",
+        "level": 1
+      },
+      {
+        "name": "focus-energy",
+        "level": 36
+      },
+      {
+        "name": "seismic-toss",
+        "level": 44
+      },
+      {
+        "name": "submission",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "special-attack": 70,
+      "special-defense": 30,
+      "speed": 40
+    },
+    "sprite": "/sprites/69.png",
+    "levelUpMoves": [
+      {
+        "name": "growth",
+        "level": 1
+      },
+      {
+        "name": "vine-whip",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 13
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      },
+      {
+        "name": "sleep-powder",
+        "level": 18
+      },
+      {
+        "name": "stun-spore",
+        "level": 21
+      },
+      {
+        "name": "acid",
+        "level": 26
+      },
+      {
+        "name": "razor-leaf",
+        "level": 33
+      },
+      {
+        "name": "slam",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 50,
+      "special-attack": 85,
+      "special-defense": 45,
+      "speed": 55
+    },
+    "sprite": "/sprites/70.png",
+    "levelUpMoves": [
+      {
+        "name": "growth",
+        "level": 1
+      },
+      {
+        "name": "vine-whip",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      },
+      {
+        "name": "sleep-powder",
+        "level": 18
+      },
+      {
+        "name": "stun-spore",
+        "level": 23
+      },
+      {
+        "name": "acid",
+        "level": 29
+      },
+      {
+        "name": "razor-leaf",
+        "level": 38
+      },
+      {
+        "name": "slam",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "special-attack": 100,
+      "special-defense": 70,
+      "speed": 70
+    },
+    "sprite": "/sprites/71.png",
+    "levelUpMoves": [
+      {
+        "name": "acid",
+        "level": 1
+      },
+      {
+        "name": "razor-leaf",
+        "level": 1
+      },
+      {
+        "name": "sleep-powder",
+        "level": 1
+      },
+      {
+        "name": "stun-spore",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 13
+      },
+      {
+        "name": "poison-powder",
+        "level": 15
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 40,
+      "defense": 35,
+      "special-attack": 50,
+      "special-defense": 100,
+      "speed": 70
+    },
+    "sprite": "/sprites/72.png",
+    "levelUpMoves": [
+      {
+        "name": "acid",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 7
+      },
+      {
+        "name": "wrap",
+        "level": 13
+      },
+      {
+        "name": "poison-sting",
+        "level": 18
+      },
+      {
+        "name": "water-gun",
+        "level": 22
+      },
+      {
+        "name": "constrict",
+        "level": 27
+      },
+      {
+        "name": "barrier",
+        "level": 33
+      },
+      {
+        "name": "screech",
+        "level": 40
+      },
+      {
+        "name": "hydro-pump",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "tentacruel",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "special-attack": 80,
+      "special-defense": 120,
+      "speed": 100
+    },
+    "sprite": "/sprites/73.png",
+    "levelUpMoves": [
+      {
+        "name": "acid",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "poison-sting",
+        "level": 18
+      },
+      {
+        "name": "water-gun",
+        "level": 22
+      },
+      {
+        "name": "constrict",
+        "level": 27
+      },
+      {
+        "name": "barrier",
+        "level": 35
+      },
+      {
+        "name": "screech",
+        "level": 43
+      },
+      {
+        "name": "hydro-pump",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "name": "geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "special-attack": 30,
+      "special-defense": 30,
+      "speed": 20
+    },
+    "sprite": "/sprites/74.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "defense-curl",
+        "level": 11
+      },
+      {
+        "name": "rock-throw",
+        "level": 16
+      },
+      {
+        "name": "self-destruct",
+        "level": 21
+      },
+      {
+        "name": "harden",
+        "level": 26
+      },
+      {
+        "name": "earthquake",
+        "level": 31
+      },
+      {
+        "name": "explosion",
+        "level": 36
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "graveler",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "special-attack": 45,
+      "special-defense": 45,
+      "speed": 35
+    },
+    "sprite": "/sprites/75.png",
+    "levelUpMoves": [
+      {
+        "name": "defense-curl",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "rock-throw",
+        "level": 16
+      },
+      {
+        "name": "self-destruct",
+        "level": 21
+      },
+      {
+        "name": "harden",
+        "level": 29
+      },
+      {
+        "name": "earthquake",
+        "level": 36
+      },
+      {
+        "name": "explosion",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "golem",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 130,
+      "special-attack": 55,
+      "special-defense": 65,
+      "speed": 45
+    },
+    "sprite": "/sprites/76.png",
+    "levelUpMoves": [
+      {
+        "name": "defense-curl",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "rock-throw",
+        "level": 16
+      },
+      {
+        "name": "self-destruct",
+        "level": 21
+      },
+      {
+        "name": "harden",
+        "level": 29
+      },
+      {
+        "name": "earthquake",
+        "level": 36
+      },
+      {
+        "name": "explosion",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "ponyta",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "special-attack": 65,
+      "special-defense": 65,
+      "speed": 90
+    },
+    "sprite": "/sprites/77.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 30
+      },
+      {
+        "name": "stomp",
+        "level": 32
+      },
+      {
+        "name": "growl",
+        "level": 35
+      },
+      {
+        "name": "fire-spin",
+        "level": 39
+      },
+      {
+        "name": "take-down",
+        "level": 43
+      },
+      {
+        "name": "agility",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "rapidash",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 70,
+      "special-attack": 80,
+      "special-defense": 80,
+      "speed": 105
+    },
+    "sprite": "/sprites/78.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "fire-spin",
+        "level": 39
+      },
+      {
+        "name": "take-down",
+        "level": 47
+      },
+      {
+        "name": "agility",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 65,
+      "special-attack": 40,
+      "special-defense": 40,
+      "speed": 15
+    },
+    "sprite": "/sprites/79.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 18
+      },
+      {
+        "name": "headbutt",
+        "level": 22
+      },
+      {
+        "name": "growl",
+        "level": 27
+      },
+      {
+        "name": "water-gun",
+        "level": 33
+      },
+      {
+        "name": "amnesia",
+        "level": 40
+      },
+      {
+        "name": "psychic",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "name": "slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 110,
+      "special-attack": 100,
+      "special-defense": 80,
+      "speed": 30
+    },
+    "sprite": "/sprites/80.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "headbutt",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 27
+      },
+      {
+        "name": "water-gun",
+        "level": 33
+      },
+      {
+        "name": "withdraw",
+        "level": 37
+      },
+      {
+        "name": "amnesia",
+        "level": 44
+      },
+      {
+        "name": "psychic",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "magnemite",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "special-attack": 95,
+      "special-defense": 55,
+      "speed": 45
+    },
+    "sprite": "/sprites/81.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "sonic-boom",
+        "level": 21
+      },
+      {
+        "name": "thunder-shock",
+        "level": 25
+      },
+      {
+        "name": "supersonic",
+        "level": 29
+      },
+      {
+        "name": "thunder-wave",
+        "level": 35
+      },
+      {
+        "name": "swift",
+        "level": 41
+      },
+      {
+        "name": "screech",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "magneton",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "special-attack": 120,
+      "special-defense": 70,
+      "speed": 70
+    },
+    "sprite": "/sprites/82.png",
+    "levelUpMoves": [
+      {
+        "name": "sonic-boom",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 29
+      },
+      {
+        "name": "thunder-wave",
+        "level": 38
+      },
+      {
+        "name": "swift",
+        "level": 46
+      },
+      {
+        "name": "screech",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "farfetchd",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "special-attack": 58,
+      "special-defense": 62,
+      "speed": 60
+    },
+    "sprite": "/sprites/83.png",
+    "levelUpMoves": [
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 7
+      },
+      {
+        "name": "fury-attack",
+        "level": 15
+      },
+      {
+        "name": "swords-dance",
+        "level": 23
+      },
+      {
+        "name": "agility",
+        "level": 31
+      },
+      {
+        "name": "slash",
+        "level": 39
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 85,
+      "defense": 45,
+      "special-attack": 35,
+      "special-defense": 35,
+      "speed": 75
+    },
+    "sprite": "/sprites/84.png",
+    "levelUpMoves": [
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 20
+      },
+      {
+        "name": "fury-attack",
+        "level": 24
+      },
+      {
+        "name": "drill-peck",
+        "level": 30
+      },
+      {
+        "name": "rage",
+        "level": 36
+      },
+      {
+        "name": "tri-attack",
+        "level": 40
+      },
+      {
+        "name": "agility",
+        "level": 44
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 110,
+      "defense": 70,
+      "special-attack": 60,
+      "special-defense": 60,
+      "speed": 110
+    },
+    "sprite": "/sprites/85.png",
+    "levelUpMoves": [
+      {
+        "name": "fury-attack",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "drill-peck",
+        "level": 30
+      },
+      {
+        "name": "rage",
+        "level": 39
+      },
+      {
+        "name": "tri-attack",
+        "level": 45
+      },
+      {
+        "name": "agility",
+        "level": 51
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "seel",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 45,
+      "defense": 55,
+      "special-attack": 45,
+      "special-defense": 70,
+      "speed": 45
+    },
+    "sprite": "/sprites/86.png",
+    "levelUpMoves": [
+      {
+        "name": "headbutt",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 30
+      },
+      {
+        "name": "aurora-beam",
+        "level": 35
+      },
+      {
+        "name": "rest",
+        "level": 40
+      },
+      {
+        "name": "take-down",
+        "level": 45
+      },
+      {
+        "name": "ice-beam",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "special-attack": 70,
+      "special-defense": 95,
+      "speed": 70
+    },
+    "sprite": "/sprites/87.png",
+    "levelUpMoves": [
+      {
+        "name": "aurora-beam",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "headbutt",
+        "level": 1
+      },
+      {
+        "name": "rest",
+        "level": 44
+      },
+      {
+        "name": "take-down",
+        "level": 50
+      },
+      {
+        "name": "ice-beam",
+        "level": 56
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "grimer",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 50,
+      "special-attack": 40,
+      "special-defense": 50,
+      "speed": 25
+    },
+    "sprite": "/sprites/88.png",
+    "levelUpMoves": [
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "poison-gas",
+        "level": 30
+      },
+      {
+        "name": "minimize",
+        "level": 33
+      },
+      {
+        "name": "sludge",
+        "level": 37
+      },
+      {
+        "name": "harden",
+        "level": 42
+      },
+      {
+        "name": "screech",
+        "level": 48
+      },
+      {
+        "name": "acid-armor",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "muk",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "attack": 105,
+      "defense": 75,
+      "special-attack": 65,
+      "special-defense": 100,
+      "speed": 50
+    },
+    "sprite": "/sprites/89.png",
+    "levelUpMoves": [
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "poison-gas",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "minimize",
+        "level": 33
+      },
+      {
+        "name": "sludge",
+        "level": 37
+      },
+      {
+        "name": "harden",
+        "level": 45
+      },
+      {
+        "name": "screech",
+        "level": 53
+      },
+      {
+        "name": "acid-armor",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "shellder",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "special-attack": 45,
+      "special-defense": 25,
+      "speed": 40
+    },
+    "sprite": "/sprites/90.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "withdraw",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 18
+      },
+      {
+        "name": "clamp",
+        "level": 23
+      },
+      {
+        "name": "aurora-beam",
+        "level": 30
+      },
+      {
+        "name": "leer",
+        "level": 39
+      },
+      {
+        "name": "ice-beam",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "special-attack": 85,
+      "special-defense": 45,
+      "speed": 70
+    },
+    "sprite": "/sprites/91.png",
+    "levelUpMoves": [
+      {
+        "name": "aurora-beam",
+        "level": 1
+      },
+      {
+        "name": "clamp",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 1
+      },
+      {
+        "name": "withdraw",
+        "level": 1
+      },
+      {
+        "name": "spike-cannon",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "special-attack": 100,
+      "special-defense": 35,
+      "speed": 80
+    },
+    "sprite": "/sprites/92.png",
+    "levelUpMoves": [
+      {
+        "name": "confuse-ray",
+        "level": 1
+      },
+      {
+        "name": "lick",
+        "level": 1
+      },
+      {
+        "name": "night-shade",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 27
+      },
+      {
+        "name": "dream-eater",
+        "level": 35
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "name": "haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 45,
+      "special-attack": 115,
+      "special-defense": 55,
+      "speed": 95
+    },
+    "sprite": "/sprites/93.png",
+    "levelUpMoves": [
+      {
+        "name": "confuse-ray",
+        "level": 1
+      },
+      {
+        "name": "lick",
+        "level": 1
+      },
+      {
+        "name": "night-shade",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 29
+      },
+      {
+        "name": "dream-eater",
+        "level": 38
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 60,
+      "special-attack": 130,
+      "special-defense": 75,
+      "speed": 110
+    },
+    "sprite": "/sprites/94.png",
+    "levelUpMoves": [
+      {
+        "name": "confuse-ray",
+        "level": 1
+      },
+      {
+        "name": "lick",
+        "level": 1
+      },
+      {
+        "name": "night-shade",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 29
+      },
+      {
+        "name": "dream-eater",
+        "level": 38
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "special-attack": 30,
+      "special-defense": 45,
+      "speed": 70
+    },
+    "sprite": "/sprites/95.png",
+    "levelUpMoves": [
+      {
+        "name": "screech",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "bind",
+        "level": 15
+      },
+      {
+        "name": "rock-throw",
+        "level": 19
+      },
+      {
+        "name": "rage",
+        "level": 25
+      },
+      {
+        "name": "slam",
+        "level": 33
+      },
+      {
+        "name": "harden",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "drowzee",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 48,
+      "defense": 45,
+      "special-attack": 43,
+      "special-defense": 90,
+      "speed": 42
+    },
+    "sprite": "/sprites/96.png",
+    "levelUpMoves": [
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 12
+      },
+      {
+        "name": "confusion",
+        "level": 17
+      },
+      {
+        "name": "headbutt",
+        "level": 24
+      },
+      {
+        "name": "poison-gas",
+        "level": 29
+      },
+      {
+        "name": "psychic",
+        "level": 32
+      },
+      {
+        "name": "meditate",
+        "level": 37
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "hypno",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "special-attack": 73,
+      "special-defense": 115,
+      "speed": 67
+    },
+    "sprite": "/sprites/97.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "headbutt",
+        "level": 24
+      },
+      {
+        "name": "poison-gas",
+        "level": 33
+      },
+      {
+        "name": "psychic",
+        "level": 37
+      },
+      {
+        "name": "meditate",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "krabby",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "special-attack": 25,
+      "special-defense": 25,
+      "speed": 50
+    },
+    "sprite": "/sprites/98.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "vice-grip",
+        "level": 20
+      },
+      {
+        "name": "guillotine",
+        "level": 25
+      },
+      {
+        "name": "stomp",
+        "level": 30
+      },
+      {
+        "name": "crabhammer",
+        "level": 35
+      },
+      {
+        "name": "harden",
+        "level": 40
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "kingler",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 130,
+      "defense": 115,
+      "special-attack": 50,
+      "special-defense": 50,
+      "speed": 75
+    },
+    "sprite": "/sprites/99.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "vice-grip",
+        "level": 1
+      },
+      {
+        "name": "guillotine",
+        "level": 25
+      },
+      {
+        "name": "stomp",
+        "level": 34
+      },
+      {
+        "name": "crabhammer",
+        "level": 42
+      },
+      {
+        "name": "harden",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "voltorb",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "special-attack": 55,
+      "special-defense": 55,
+      "speed": 100
+    },
+    "sprite": "/sprites/100.png",
+    "levelUpMoves": [
+      {
+        "name": "screech",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "sonic-boom",
+        "level": 17
+      },
+      {
+        "name": "self-destruct",
+        "level": 22
+      },
+      {
+        "name": "light-screen",
+        "level": 29
+      },
+      {
+        "name": "swift",
+        "level": 36
+      },
+      {
+        "name": "explosion",
+        "level": 43
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "name": "electrode",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 70,
+      "special-attack": 80,
+      "special-defense": 80,
+      "speed": 150
+    },
+    "sprite": "/sprites/101.png",
+    "levelUpMoves": [
+      {
+        "name": "screech",
+        "level": 1
+      },
+      {
+        "name": "sonic-boom",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "self-destruct",
+        "level": 22
+      },
+      {
+        "name": "light-screen",
+        "level": 29
+      },
+      {
+        "name": "swift",
+        "level": 40
+      },
+      {
+        "name": "explosion",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "special-attack": 60,
+      "special-defense": 45,
+      "speed": 40
+    },
+    "sprite": "/sprites/102.png",
+    "levelUpMoves": [
+      {
+        "name": "barrage",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "reflect",
+        "level": 25
+      },
+      {
+        "name": "leech-seed",
+        "level": 28
+      },
+      {
+        "name": "stun-spore",
+        "level": 32
+      },
+      {
+        "name": "poison-powder",
+        "level": 37
+      },
+      {
+        "name": "solar-beam",
+        "level": 42
+      },
+      {
+        "name": "sleep-powder",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "special-attack": 125,
+      "special-defense": 75,
+      "speed": 55
+    },
+    "sprite": "/sprites/103.png",
+    "levelUpMoves": [
+      {
+        "name": "barrage",
+        "level": 1
+      },
+      {
+        "name": "hypnosis",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 28
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "name": "cubone",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "special-attack": 40,
+      "special-defense": 50,
+      "speed": 35
+    },
+    "sprite": "/sprites/104.png",
+    "levelUpMoves": [
+      {
+        "name": "bone-club",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 25
+      },
+      {
+        "name": "focus-energy",
+        "level": 31
+      },
+      {
+        "name": "thrash",
+        "level": 38
+      },
+      {
+        "name": "bonemerang",
+        "level": 43
+      },
+      {
+        "name": "rage",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "name": "marowak",
+    "types": [
+      "ground"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 110,
+      "special-attack": 50,
+      "special-defense": 80,
+      "speed": 45
+    },
+    "sprite": "/sprites/105.png",
+    "levelUpMoves": [
+      {
+        "name": "bone-club",
+        "level": 1
+      },
+      {
+        "name": "focus-energy",
+        "level": 1
+      },
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "thrash",
+        "level": 41
+      },
+      {
+        "name": "bonemerang",
+        "level": 48
+      },
+      {
+        "name": "rage",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "name": "hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "special-attack": 35,
+      "special-defense": 110,
+      "speed": 87
+    },
+    "sprite": "/sprites/106.png",
+    "levelUpMoves": [
+      {
+        "name": "double-kick",
+        "level": 1
+      },
+      {
+        "name": "meditate",
+        "level": 1
+      },
+      {
+        "name": "rolling-kick",
+        "level": 33
+      },
+      {
+        "name": "jump-kick",
+        "level": 38
+      },
+      {
+        "name": "focus-energy",
+        "level": 43
+      },
+      {
+        "name": "high-jump-kick",
+        "level": 48
+      },
+      {
+        "name": "mega-kick",
+        "level": 53
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "name": "hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 50,
+      "attack": 105,
+      "defense": 79,
+      "special-attack": 35,
+      "special-defense": 110,
+      "speed": 76
+    },
+    "sprite": "/sprites/107.png",
+    "levelUpMoves": [
+      {
+        "name": "agility",
+        "level": 1
+      },
+      {
+        "name": "comet-punch",
+        "level": 1
+      },
+      {
+        "name": "fire-punch",
+        "level": 33
+      },
+      {
+        "name": "ice-punch",
+        "level": 38
+      },
+      {
+        "name": "thunder-punch",
+        "level": 43
+      },
+      {
+        "name": "mega-punch",
+        "level": 48
+      },
+      {
+        "name": "counter",
+        "level": 53
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "name": "lickitung",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 55,
+      "defense": 75,
+      "special-attack": 60,
+      "special-defense": 75,
+      "speed": 30
+    },
+    "sprite": "/sprites/108.png",
+    "levelUpMoves": [
+      {
+        "name": "supersonic",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 7
+      },
+      {
+        "name": "disable",
+        "level": 15
+      },
+      {
+        "name": "defense-curl",
+        "level": 23
+      },
+      {
+        "name": "slam",
+        "level": 31
+      },
+      {
+        "name": "screech",
+        "level": 39
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "name": "koffing",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 65,
+      "defense": 95,
+      "special-attack": 60,
+      "special-defense": 45,
+      "speed": 35
+    },
+    "sprite": "/sprites/109.png",
+    "levelUpMoves": [
+      {
+        "name": "smog",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "sludge",
+        "level": 32
+      },
+      {
+        "name": "smokescreen",
+        "level": 37
+      },
+      {
+        "name": "self-destruct",
+        "level": 40
+      },
+      {
+        "name": "haze",
+        "level": 45
+      },
+      {
+        "name": "explosion",
+        "level": 48
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "name": "weezing",
+    "types": [
+      "poison"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 120,
+      "special-attack": 85,
+      "special-defense": 70,
+      "speed": 60
+    },
+    "sprite": "/sprites/110.png",
+    "levelUpMoves": [
+      {
+        "name": "sludge",
+        "level": 1
+      },
+      {
+        "name": "smog",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "smokescreen",
+        "level": 39
+      },
+      {
+        "name": "self-destruct",
+        "level": 43
+      },
+      {
+        "name": "haze",
+        "level": 49
+      },
+      {
+        "name": "explosion",
+        "level": 53
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "name": "rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "special-attack": 30,
+      "special-defense": 30,
+      "speed": 25
+    },
+    "sprite": "/sprites/111.png",
+    "levelUpMoves": [
+      {
+        "name": "horn-attack",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 30
+      },
+      {
+        "name": "tail-whip",
+        "level": 35
+      },
+      {
+        "name": "fury-attack",
+        "level": 40
+      },
+      {
+        "name": "horn-drill",
+        "level": 45
+      },
+      {
+        "name": "leer",
+        "level": 50
+      },
+      {
+        "name": "take-down",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "name": "rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "attack": 130,
+      "defense": 120,
+      "special-attack": 45,
+      "special-defense": 45,
+      "speed": 40
+    },
+    "sprite": "/sprites/112.png",
+    "levelUpMoves": [
+      {
+        "name": "fury-attack",
+        "level": 1
+      },
+      {
+        "name": "horn-attack",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "horn-drill",
+        "level": 48
+      },
+      {
+        "name": "leer",
+        "level": 55
+      },
+      {
+        "name": "take-down",
+        "level": 64
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "name": "chansey",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 250,
+      "attack": 5,
+      "defense": 5,
+      "special-attack": 35,
+      "special-defense": 105,
+      "speed": 50
+    },
+    "sprite": "/sprites/113.png",
+    "levelUpMoves": [
+      {
+        "name": "double-slap",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "sing",
+        "level": 24
+      },
+      {
+        "name": "growl",
+        "level": 30
+      },
+      {
+        "name": "minimize",
+        "level": 38
+      },
+      {
+        "name": "defense-curl",
+        "level": 44
+      },
+      {
+        "name": "light-screen",
+        "level": 48
+      },
+      {
+        "name": "double-edge",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "name": "tangela",
+    "types": [
+      "grass"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 55,
+      "defense": 115,
+      "special-attack": 100,
+      "special-defense": 40,
+      "speed": 60
+    },
+    "sprite": "/sprites/114.png",
+    "levelUpMoves": [
+      {
+        "name": "bind",
+        "level": 1
+      },
+      {
+        "name": "constrict",
+        "level": 1
+      },
+      {
+        "name": "absorb",
+        "level": 29
+      },
+      {
+        "name": "poison-powder",
+        "level": 32
+      },
+      {
+        "name": "stun-spore",
+        "level": 36
+      },
+      {
+        "name": "sleep-powder",
+        "level": 39
+      },
+      {
+        "name": "slam",
+        "level": 45
+      },
+      {
+        "name": "growth",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "name": "kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 105,
+      "attack": 95,
+      "defense": 80,
+      "special-attack": 40,
+      "special-defense": 80,
+      "speed": 90
+    },
+    "sprite": "/sprites/115.png",
+    "levelUpMoves": [
+      {
+        "name": "comet-punch",
+        "level": 1
+      },
+      {
+        "name": "rage",
+        "level": 1
+      },
+      {
+        "name": "bite",
+        "level": 26
+      },
+      {
+        "name": "tail-whip",
+        "level": 31
+      },
+      {
+        "name": "mega-punch",
+        "level": 36
+      },
+      {
+        "name": "leer",
+        "level": 41
+      },
+      {
+        "name": "dizzy-punch",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "name": "horsea",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 40,
+      "defense": 70,
+      "special-attack": 70,
+      "special-defense": 25,
+      "speed": 60
+    },
+    "sprite": "/sprites/116.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "smokescreen",
+        "level": 19
+      },
+      {
+        "name": "leer",
+        "level": 24
+      },
+      {
+        "name": "water-gun",
+        "level": 30
+      },
+      {
+        "name": "agility",
+        "level": 37
+      },
+      {
+        "name": "hydro-pump",
+        "level": 45
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "name": "seadra",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "special-attack": 95,
+      "special-defense": 45,
+      "speed": 85
+    },
+    "sprite": "/sprites/117.png",
+    "levelUpMoves": [
+      {
+        "name": "bubble",
+        "level": 1
+      },
+      {
+        "name": "smokescreen",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 24
+      },
+      {
+        "name": "water-gun",
+        "level": 30
+      },
+      {
+        "name": "agility",
+        "level": 41
+      },
+      {
+        "name": "hydro-pump",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "name": "goldeen",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 45,
+      "attack": 67,
+      "defense": 60,
+      "special-attack": 35,
+      "special-defense": 50,
+      "speed": 63
+    },
+    "sprite": "/sprites/118.png",
+    "levelUpMoves": [
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 19
+      },
+      {
+        "name": "horn-attack",
+        "level": 24
+      },
+      {
+        "name": "fury-attack",
+        "level": 30
+      },
+      {
+        "name": "waterfall",
+        "level": 37
+      },
+      {
+        "name": "horn-drill",
+        "level": 45
+      },
+      {
+        "name": "agility",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "name": "seaking",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 92,
+      "defense": 65,
+      "special-attack": 65,
+      "special-defense": 80,
+      "speed": 68
+    },
+    "sprite": "/sprites/119.png",
+    "levelUpMoves": [
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 1
+      },
+      {
+        "name": "horn-attack",
+        "level": 24
+      },
+      {
+        "name": "fury-attack",
+        "level": 30
+      },
+      {
+        "name": "waterfall",
+        "level": 39
+      },
+      {
+        "name": "horn-drill",
+        "level": 48
+      },
+      {
+        "name": "agility",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "name": "staryu",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "special-attack": 70,
+      "special-defense": 55,
+      "speed": 85
+    },
+    "sprite": "/sprites/120.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 17
+      },
+      {
+        "name": "harden",
+        "level": 22
+      },
+      {
+        "name": "recover",
+        "level": 27
+      },
+      {
+        "name": "swift",
+        "level": 32
+      },
+      {
+        "name": "minimize",
+        "level": 37
+      },
+      {
+        "name": "light-screen",
+        "level": 42
+      },
+      {
+        "name": "hydro-pump",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "name": "starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "special-attack": 100,
+      "special-defense": 85,
+      "speed": 115
+    },
+    "sprite": "/sprites/121.png",
+    "levelUpMoves": [
+      {
+        "name": "harden",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "name": "mr-mime",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "special-attack": 100,
+      "special-defense": 120,
+      "speed": 90
+    },
+    "sprite": "/sprites/122.png",
+    "levelUpMoves": [
+      {
+        "name": "barrier",
+        "level": 1
+      },
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "light-screen",
+        "level": 23
+      },
+      {
+        "name": "double-slap",
+        "level": 31
+      },
+      {
+        "name": "meditate",
+        "level": 39
+      },
+      {
+        "name": "substitute",
+        "level": 47
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "name": "scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "special-attack": 55,
+      "special-defense": 80,
+      "speed": 105
+    },
+    "sprite": "/sprites/123.png",
+    "levelUpMoves": [
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 17
+      },
+      {
+        "name": "focus-energy",
+        "level": 20
+      },
+      {
+        "name": "double-team",
+        "level": 24
+      },
+      {
+        "name": "slash",
+        "level": 29
+      },
+      {
+        "name": "swords-dance",
+        "level": 35
+      },
+      {
+        "name": "agility",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "name": "jynx",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 50,
+      "defense": 35,
+      "special-attack": 115,
+      "special-defense": 95,
+      "speed": 95
+    },
+    "sprite": "/sprites/124.png",
+    "levelUpMoves": [
+      {
+        "name": "lovely-kiss",
+        "level": 1
+      },
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "lick",
+        "level": 18
+      },
+      {
+        "name": "double-slap",
+        "level": 23
+      },
+      {
+        "name": "ice-punch",
+        "level": 31
+      },
+      {
+        "name": "body-slam",
+        "level": 39
+      },
+      {
+        "name": "thrash",
+        "level": 47
+      },
+      {
+        "name": "blizzard",
+        "level": 58
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "name": "electabuzz",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 83,
+      "defense": 57,
+      "special-attack": 95,
+      "special-defense": 85,
+      "speed": 105
+    },
+    "sprite": "/sprites/125.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 34
+      },
+      {
+        "name": "screech",
+        "level": 37
+      },
+      {
+        "name": "thunder-punch",
+        "level": 42
+      },
+      {
+        "name": "light-screen",
+        "level": 49
+      },
+      {
+        "name": "thunder",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "name": "magmar",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 57,
+      "special-attack": 100,
+      "special-defense": 85,
+      "speed": 93
+    },
+    "sprite": "/sprites/126.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 36
+      },
+      {
+        "name": "confuse-ray",
+        "level": 39
+      },
+      {
+        "name": "fire-punch",
+        "level": 43
+      },
+      {
+        "name": "smokescreen",
+        "level": 48
+      },
+      {
+        "name": "smog",
+        "level": 52
+      },
+      {
+        "name": "flamethrower",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "name": "pinsir",
+    "types": [
+      "bug"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 125,
+      "defense": 100,
+      "special-attack": 55,
+      "special-defense": 70,
+      "speed": 85
+    },
+    "sprite": "/sprites/127.png",
+    "levelUpMoves": [
+      {
+        "name": "vice-grip",
+        "level": 1
+      },
+      {
+        "name": "seismic-toss",
+        "level": 25
+      },
+      {
+        "name": "guillotine",
+        "level": 30
+      },
+      {
+        "name": "focus-energy",
+        "level": 36
+      },
+      {
+        "name": "harden",
+        "level": 43
+      },
+      {
+        "name": "slash",
+        "level": 49
+      },
+      {
+        "name": "swords-dance",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "name": "tauros",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "special-attack": 40,
+      "special-defense": 70,
+      "speed": 110
+    },
+    "sprite": "/sprites/128.png",
+    "levelUpMoves": [
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "stomp",
+        "level": 21
+      },
+      {
+        "name": "tail-whip",
+        "level": 28
+      },
+      {
+        "name": "leer",
+        "level": 35
+      },
+      {
+        "name": "rage",
+        "level": 44
+      },
+      {
+        "name": "take-down",
+        "level": 51
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "name": "magikarp",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "special-attack": 15,
+      "special-defense": 20,
+      "speed": 80
+    },
+    "sprite": "/sprites/129.png",
+    "levelUpMoves": [
+      {
+        "name": "splash",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 15
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "name": "gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "special-attack": 60,
+      "special-defense": 100,
+      "speed": 81
+    },
+    "sprite": "/sprites/130.png",
+    "levelUpMoves": [
+      {
+        "name": "bite",
+        "level": 1
+      },
+      {
+        "name": "dragon-rage",
+        "level": 1
+      },
+      {
+        "name": "hydro-pump",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "hyper-beam",
+        "level": 52
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "name": "lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "baseStats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "special-attack": 85,
+      "special-defense": 95,
+      "speed": 60
+    },
+    "sprite": "/sprites/131.png",
+    "levelUpMoves": [
+      {
+        "name": "growl",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "sing",
+        "level": 16
+      },
+      {
+        "name": "mist",
+        "level": 20
+      },
+      {
+        "name": "body-slam",
+        "level": 25
+      },
+      {
+        "name": "confuse-ray",
+        "level": 31
+      },
+      {
+        "name": "ice-beam",
+        "level": 38
+      },
+      {
+        "name": "hydro-pump",
+        "level": 46
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "name": "ditto",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "special-attack": 48,
+      "special-defense": 48,
+      "speed": 48
+    },
+    "sprite": "/sprites/132.png",
+    "levelUpMoves": [
+      {
+        "name": "transform",
+        "level": 1
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "name": "eevee",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "special-attack": 45,
+      "special-defense": 65,
+      "speed": 55
+    },
+    "sprite": "/sprites/133.png",
+    "levelUpMoves": [
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 27
+      },
+      {
+        "name": "tail-whip",
+        "level": 31
+      },
+      {
+        "name": "bite",
+        "level": 37
+      },
+      {
+        "name": "take-down",
+        "level": 45
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "name": "vaporeon",
+    "types": [
+      "water"
+    ],
+    "baseStats": {
+      "hp": 130,
+      "attack": 65,
+      "defense": 60,
+      "special-attack": 110,
+      "special-defense": 95,
+      "speed": 65
+    },
+    "sprite": "/sprites/134.png",
+    "levelUpMoves": [
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 37
+      },
+      {
+        "name": "bite",
+        "level": 40
+      },
+      {
+        "name": "acid-armor",
+        "level": 42
+      },
+      {
+        "name": "haze",
+        "level": 44
+      },
+      {
+        "name": "mist",
+        "level": 48
+      },
+      {
+        "name": "hydro-pump",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "name": "jolteon",
+    "types": [
+      "electric"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 60,
+      "special-attack": 110,
+      "special-defense": 95,
+      "speed": 130
+    },
+    "sprite": "/sprites/135.png",
+    "levelUpMoves": [
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 37
+      },
+      {
+        "name": "thunder-wave",
+        "level": 40
+      },
+      {
+        "name": "double-kick",
+        "level": 42
+      },
+      {
+        "name": "agility",
+        "level": 44
+      },
+      {
+        "name": "pin-missile",
+        "level": 48
+      },
+      {
+        "name": "thunder",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "name": "flareon",
+    "types": [
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 130,
+      "defense": 60,
+      "special-attack": 95,
+      "special-defense": 110,
+      "speed": 65
+    },
+    "sprite": "/sprites/136.png",
+    "levelUpMoves": [
+      {
+        "name": "ember",
+        "level": 1
+      },
+      {
+        "name": "quick-attack",
+        "level": 1
+      },
+      {
+        "name": "sand-attack",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "tail-whip",
+        "level": 37
+      },
+      {
+        "name": "bite",
+        "level": 40
+      },
+      {
+        "name": "leer",
+        "level": 42
+      },
+      {
+        "name": "fire-spin",
+        "level": 44
+      },
+      {
+        "name": "rage",
+        "level": 48
+      },
+      {
+        "name": "flamethrower",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "name": "porygon",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "special-attack": 85,
+      "special-defense": 75,
+      "speed": 40
+    },
+    "sprite": "/sprites/137.png",
+    "levelUpMoves": [
+      {
+        "name": "conversion",
+        "level": 1
+      },
+      {
+        "name": "sharpen",
+        "level": 1
+      },
+      {
+        "name": "tackle",
+        "level": 1
+      },
+      {
+        "name": "psybeam",
+        "level": 23
+      },
+      {
+        "name": "recover",
+        "level": 28
+      },
+      {
+        "name": "agility",
+        "level": 35
+      },
+      {
+        "name": "tri-attack",
+        "level": 42
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "name": "omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 35,
+      "attack": 40,
+      "defense": 100,
+      "special-attack": 90,
+      "special-defense": 55,
+      "speed": 35
+    },
+    "sprite": "/sprites/138.png",
+    "levelUpMoves": [
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "withdraw",
+        "level": 1
+      },
+      {
+        "name": "horn-attack",
+        "level": 34
+      },
+      {
+        "name": "leer",
+        "level": 39
+      },
+      {
+        "name": "spike-cannon",
+        "level": 46
+      },
+      {
+        "name": "hydro-pump",
+        "level": 53
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "name": "omastar",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "special-attack": 115,
+      "special-defense": 70,
+      "speed": 55
+    },
+    "sprite": "/sprites/139.png",
+    "levelUpMoves": [
+      {
+        "name": "horn-attack",
+        "level": 1
+      },
+      {
+        "name": "water-gun",
+        "level": 1
+      },
+      {
+        "name": "withdraw",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 39
+      },
+      {
+        "name": "spike-cannon",
+        "level": 44
+      },
+      {
+        "name": "hydro-pump",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "name": "kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 30,
+      "attack": 80,
+      "defense": 90,
+      "special-attack": 55,
+      "special-defense": 45,
+      "speed": 55
+    },
+    "sprite": "/sprites/140.png",
+    "levelUpMoves": [
+      {
+        "name": "harden",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "absorb",
+        "level": 34
+      },
+      {
+        "name": "slash",
+        "level": 39
+      },
+      {
+        "name": "leer",
+        "level": 44
+      },
+      {
+        "name": "hydro-pump",
+        "level": 49
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "name": "kabutops",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 105,
+      "special-attack": 65,
+      "special-defense": 70,
+      "speed": 80
+    },
+    "sprite": "/sprites/141.png",
+    "levelUpMoves": [
+      {
+        "name": "absorb",
+        "level": 1
+      },
+      {
+        "name": "harden",
+        "level": 1
+      },
+      {
+        "name": "scratch",
+        "level": 1
+      },
+      {
+        "name": "slash",
+        "level": 39
+      },
+      {
+        "name": "leer",
+        "level": 46
+      },
+      {
+        "name": "hydro-pump",
+        "level": 53
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "name": "aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "special-attack": 60,
+      "special-defense": 75,
+      "speed": 130
+    },
+    "sprite": "/sprites/142.png",
+    "levelUpMoves": [
+      {
+        "name": "agility",
+        "level": 1
+      },
+      {
+        "name": "wing-attack",
+        "level": 1
+      },
+      {
+        "name": "supersonic",
+        "level": 33
+      },
+      {
+        "name": "bite",
+        "level": 38
+      },
+      {
+        "name": "take-down",
+        "level": 45
+      },
+      {
+        "name": "hyper-beam",
+        "level": 54
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "name": "snorlax",
+    "types": [
+      "normal"
+    ],
+    "baseStats": {
+      "hp": 160,
+      "attack": 110,
+      "defense": 65,
+      "special-attack": 65,
+      "special-defense": 110,
+      "speed": 30
+    },
+    "sprite": "/sprites/143.png",
+    "levelUpMoves": [
+      {
+        "name": "amnesia",
+        "level": 1
+      },
+      {
+        "name": "headbutt",
+        "level": 1
+      },
+      {
+        "name": "rest",
+        "level": 1
+      },
+      {
+        "name": "body-slam",
+        "level": 35
+      },
+      {
+        "name": "harden",
+        "level": 41
+      },
+      {
+        "name": "double-edge",
+        "level": 48
+      },
+      {
+        "name": "hyper-beam",
+        "level": 56
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "name": "articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "special-attack": 95,
+      "special-defense": 125,
+      "speed": 85
+    },
+    "sprite": "/sprites/144.png",
+    "levelUpMoves": [
+      {
+        "name": "ice-beam",
+        "level": 1
+      },
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "blizzard",
+        "level": 51
+      },
+      {
+        "name": "agility",
+        "level": 55
+      },
+      {
+        "name": "mist",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "name": "zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "special-attack": 125,
+      "special-defense": 90,
+      "speed": 100
+    },
+    "sprite": "/sprites/145.png",
+    "levelUpMoves": [
+      {
+        "name": "drill-peck",
+        "level": 1
+      },
+      {
+        "name": "thunder-shock",
+        "level": 1
+      },
+      {
+        "name": "thunder",
+        "level": 51
+      },
+      {
+        "name": "agility",
+        "level": 55
+      },
+      {
+        "name": "light-screen",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "name": "moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "special-attack": 125,
+      "special-defense": 85,
+      "speed": 90
+    },
+    "sprite": "/sprites/146.png",
+    "levelUpMoves": [
+      {
+        "name": "fire-spin",
+        "level": 1
+      },
+      {
+        "name": "peck",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 51
+      },
+      {
+        "name": "agility",
+        "level": 55
+      },
+      {
+        "name": "sky-attack",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "name": "dratini",
+    "types": [
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "special-attack": 50,
+      "special-defense": 50,
+      "speed": 50
+    },
+    "sprite": "/sprites/147.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "thunder-wave",
+        "level": 10
+      },
+      {
+        "name": "agility",
+        "level": 20
+      },
+      {
+        "name": "slam",
+        "level": 30
+      },
+      {
+        "name": "dragon-rage",
+        "level": 40
+      },
+      {
+        "name": "hyper-beam",
+        "level": 50
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "name": "dragonair",
+    "types": [
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 61,
+      "attack": 84,
+      "defense": 65,
+      "special-attack": 70,
+      "special-defense": 70,
+      "speed": 70
+    },
+    "sprite": "/sprites/148.png",
+    "levelUpMoves": [
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "thunder-wave",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "agility",
+        "level": 20
+      },
+      {
+        "name": "slam",
+        "level": 35
+      },
+      {
+        "name": "dragon-rage",
+        "level": 45
+      },
+      {
+        "name": "hyper-beam",
+        "level": 55
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "name": "dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "baseStats": {
+      "hp": 91,
+      "attack": 134,
+      "defense": 95,
+      "special-attack": 100,
+      "special-defense": 100,
+      "speed": 80
+    },
+    "sprite": "/sprites/149.png",
+    "levelUpMoves": [
+      {
+        "name": "agility",
+        "level": 1
+      },
+      {
+        "name": "leer",
+        "level": 1
+      },
+      {
+        "name": "thunder-wave",
+        "level": 1
+      },
+      {
+        "name": "wrap",
+        "level": 1
+      },
+      {
+        "name": "slam",
+        "level": 35
+      },
+      {
+        "name": "dragon-rage",
+        "level": 45
+      },
+      {
+        "name": "hyper-beam",
+        "level": 60
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "name": "mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 106,
+      "attack": 110,
+      "defense": 90,
+      "special-attack": 154,
+      "special-defense": 90,
+      "speed": 130
+    },
+    "sprite": "/sprites/150.png",
+    "levelUpMoves": [
+      {
+        "name": "confusion",
+        "level": 1
+      },
+      {
+        "name": "disable",
+        "level": 1
+      },
+      {
+        "name": "psychic",
+        "level": 1
+      },
+      {
+        "name": "swift",
+        "level": 1
+      },
+      {
+        "name": "barrier",
+        "level": 63
+      },
+      {
+        "name": "recover",
+        "level": 70
+      },
+      {
+        "name": "mist",
+        "level": 75
+      },
+      {
+        "name": "amnesia",
+        "level": 81
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "name": "mew",
+    "types": [
+      "psychic"
+    ],
+    "baseStats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 100,
+      "special-attack": 100,
+      "special-defense": 100,
+      "speed": 100
+    },
+    "sprite": "/sprites/151.png",
+    "levelUpMoves": [
+      {
+        "name": "pound",
+        "level": 1
+      },
+      {
+        "name": "transform",
+        "level": 10
+      },
+      {
+        "name": "mega-punch",
+        "level": 20
+      },
+      {
+        "name": "metronome",
+        "level": 30
+      },
+      {
+        "name": "psychic",
+        "level": 40
+      }
+    ]
+  }
+]
