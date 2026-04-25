@@ -17,7 +17,7 @@ REQ-IDs follow `[CATEGORY]-[NUMBER]` format. Each requirement is testable, user-
 - [x] **FOUND-03**: TypeScript config enforces `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`, no `any` allowed
 - [x] **FOUND-04**: Vitest 2 + `@testing-library/react@16` + `jsdom` are configured and `npm test` runs the suite
 - [x] **FOUND-05**: ESLint flat config blocks `react`/`react-dom` imports under `src/engine/**` (`no-restricted-imports`)
-- [ ] **FOUND-06**: Vercel deployment is live from day 1 with auto-deploy on push to main and a legal disclaimer on the title screen
+- [x] **FOUND-06**: Vercel deployment is live from day 1 with auto-deploy on push to main and a legal disclaimer on the title screen
 - [x] **FOUND-07**: Repo has README, `.gitignore`, `.editorconfig`, and Prettier config
 
 ### DATA — Pokémon Data Pipeline
@@ -227,7 +227,7 @@ Each requirement is mapped to exactly one phase by the roadmapper.
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
-| FOUND-06 | Phase 1 | Pending |
+| FOUND-06 | Phase 1 | Complete |
 | FOUND-07 | Phase 1 | Complete |
 | DATA-01 | Phase 1 | Pending |
 | DATA-02 | Phase 1 | Pending |
