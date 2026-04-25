@@ -214,3 +214,283 @@ describe('Reducer throws on illegal action', () => {
     ).toThrow(/illegal action/i);
   });
 });
+
+// -----------------------------------------------------------------------------
+// Reducer logic — Plan 02-02 Tests M1..M6
+// Locks: full 1v1 turn flow, mid-turn faint check (Pitfall 2), event-order
+// contract (Pattern 3), auto-advance termination, reducer purity.
+// -----------------------------------------------------------------------------
+
+import type { BattleEvent } from '../types';
+import {
+  makeBulbasaur,
+  makeCharmander,
+  makeFixtureChart,
+  makeInitialBattleState,
+  makeMove,
+} from './battle-fixtures';
+import type { RNG } from '../rng';
+
+/**
+ * Tiny scripted RNG for deterministic edge-case tests (forced miss / forced
+ * hit / forced no-crit). Pops `next` values from the supplied array; throws on
+ * exhaustion (catches off-by-one consumption bugs in tests).
+ */
+function scriptedRng(values: readonly number[]): RNG {
+  let counter = 0;
+  let i = 0;
+  const api: RNG = {
+    next() {
+      if (i >= values.length) {
+        throw new Error(`scriptedRng exhausted at counter=${counter}`);
+      }
+      counter++;
+      const v = values[i];
+      i++;
+      if (v === undefined) {
+        throw new Error(`scriptedRng got undefined at counter=${counter}`);
+      }
+      return v;
+    },
+    nextInt(min: number, max: number) {
+      return min + Math.floor(api.next() * (max - min + 1));
+    },
+    chance(p: number) {
+      return api.next() < p;
+    },
+    get counter() {
+      return counter;
+    },
+  };
+  return api;
+}
+
+describe('Reducer M1: selecting → full turn auto-advances to next selecting or battleOver', () => {
+  it('dispatches pickMove from selecting and lands in selecting or battleOver, with turnStart first', () => {
+    const state = makeInitialBattleState({
+      player: makeCharmander(),
+      enemy: makeBulbasaur(),
+    });
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = createRng(0xc0ffee);
+    const out = reducer(
+      state,
+      { type: 'pickMove', moveIndex: 0 },
+      rng,
+      ctx,
+    );
+    expect(['selecting', 'battleOver']).toContain(out.state.phase);
+    expect(out.events.length).toBeGreaterThan(0);
+    const first = out.events[0];
+    expect(first?.type).toBe('turnStart');
+    const last = out.events[out.events.length - 1];
+    expect(['turnEnd', 'battleEnded']).toContain(last?.type);
+  });
+});
+
+describe('Reducer M2: faint mid-turn — second mover is skipped if first OHKOs', () => {
+  it('player OHKOs enemy; enemy never emits moveUsed; battleOver with winner=player', () => {
+    // Player faster (speed 13 vs 11) AND enemy.hp = 1 → any successful hit OHKOs.
+    // Use scripted RNG to FORCE: AI-pick (idx 0) → no speed-tie path → hit player accuracy → no crit → random factor mid.
+    // RNG order at start of resolving (this implementation):
+    //   1) selectMove → nextInt → 1× next() (returns 0 → idx 0)
+    //   2) resolveOrder: speeds differ (13 vs 11), NO RNG consumed
+    //   3) player mover: rollAccuracy → next() (must hit, accuracy 100% so any < 1.0 works)
+    //   4) calculateDamage: chance(1/24) crit → next() (must NOT crit, value > 1/24)
+    //   5) calculateDamage: random factor → next()
+    //   → enemy faints, second mover skipped
+    const player = makeCharmander({ hp: 19, maxHp: 19 });
+    const enemy = makeBulbasaur({ hp: 1, maxHp: 20 });
+    const state = makeInitialBattleState({ player, enemy });
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = scriptedRng([
+      0.0, // 1) AI selectMove nextInt → idx 0
+      0.5, // 3) accuracy roll: 0.5 < 1.0 → hit
+      0.9, // 4) crit roll: 0.9 >= 1/24 → no crit
+      0.5, // 5) random factor mid
+    ]);
+    const out = reducer(
+      state,
+      { type: 'pickMove', moveIndex: 0 },
+      rng,
+      ctx,
+    );
+
+    // Faint event for enemy must exist and there must be no enemy moveUsed.
+    const enemyFaintIdx = out.events.findIndex(
+      (e) => e.type === 'fainted' && e.side === 'enemy',
+    );
+    expect(enemyFaintIdx).toBeGreaterThanOrEqual(0);
+    const enemyMoveUsed = out.events.find(
+      (e) => e.type === 'moveUsed' && e.side === 'enemy',
+    );
+    expect(enemyMoveUsed).toBeUndefined();
+
+    // battleOver with winner=player.
+    expect(out.state.phase).toBe('battleOver');
+    const ended = out.events.find((e) => e.type === 'battleEnded');
+    expect(ended).toEqual({ type: 'battleEnded', winner: 'player' });
+  });
+});
+
+describe('Reducer M3: event sequence on a missing player move', () => {
+  it('forced miss emits moveUsed → moveMissed (no damageDealt); enemy still acts', () => {
+    // Lower accuracy on player's chosen move so the floor doesn't override.
+    // Move accuracy 70 (= floor 0.7 effective), accuracy roll value 0.71 → miss.
+    const player = makeCharmander({
+      moves: [
+        makeMove({
+          name: 'Shaky Ember',
+          type: 'fire',
+          power: 40,
+          damageClass: 'special',
+          accuracy: 70,
+        }),
+      ],
+    });
+    const enemy = makeBulbasaur();
+    const state = makeInitialBattleState({ player, enemy });
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = scriptedRng([
+      0.0, // 1) AI nextInt → idx 0 (vine whip)
+      0.71, // 3) player accuracy: 0.71 >= 0.70 → MISS
+      0.5, // 5) enemy accuracy roll: hit (vine whip 100% acc → any < 1.0)
+      0.9, // 6) enemy crit: no crit
+      0.5, // 7) enemy random factor
+    ]);
+    const out = reducer(
+      state,
+      { type: 'pickMove', moveIndex: 0 },
+      rng,
+      ctx,
+    );
+
+    // Sequence: turnStart → moveUsed(player) → moveMissed(player) → ... no damageDealt to enemy from player
+    const playerMoveUsedIdx = out.events.findIndex(
+      (e) => e.type === 'moveUsed' && e.side === 'player',
+    );
+    const playerMoveMissedIdx = out.events.findIndex(
+      (e) => e.type === 'moveMissed' && e.side === 'player',
+    );
+    expect(playerMoveUsedIdx).toBeGreaterThanOrEqual(0);
+    expect(playerMoveMissedIdx).toBeGreaterThan(playerMoveUsedIdx);
+
+    // No damageDealt to enemy from the missed player move (enemy may take 0 damage events period if player was first; check that no damageDealt happens BEFORE moveMissed for enemy side).
+    const damageBeforeMiss = out.events
+      .slice(0, playerMoveMissedIdx)
+      .find((e) => e.type === 'damageDealt' && e.side === 'enemy');
+    expect(damageBeforeMiss).toBeUndefined();
+
+    // Enemy still acts: enemy moveUsed must be present after the miss (enemy was second mover or first).
+    const enemyMoveUsed = out.events.find(
+      (e) => e.type === 'moveUsed' && e.side === 'enemy',
+    );
+    expect(enemyMoveUsed).toBeDefined();
+  });
+});
+
+describe('Reducer M4: event sequence on a hit (super-effective, no crit)', () => {
+  it('emits moveUsed → superEffective → damageDealt → hpChanged in that order', () => {
+    const player = makeCharmander();
+    const enemy = makeBulbasaur(); // grass/poison → fire is 2× × 1 = 2× super-effective
+    const state = makeInitialBattleState({ player, enemy });
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = scriptedRng([
+      0.0, // 1) AI nextInt → idx 0 (vine whip)
+      0.5, // 3) player accuracy: hit
+      0.9, // 4) crit: no crit
+      0.5, // 5) random factor
+      0.5, // 6) enemy accuracy: hit
+      0.9, // 7) enemy crit: no
+      0.5, // 8) enemy random factor
+    ]);
+    const out = reducer(
+      state,
+      { type: 'pickMove', moveIndex: 0 }, // player picks Ember (idx 0)
+      rng,
+      ctx,
+    );
+
+    // Find player mover event slice between turnStart and the second moveUsed (enemy's).
+    const moveUsedIndices = out.events
+      .map((e, i) => (e.type === 'moveUsed' ? i : -1))
+      .filter((i) => i >= 0);
+    expect(moveUsedIndices.length).toBeGreaterThanOrEqual(1);
+    const firstMoveUsed = moveUsedIndices[0];
+    if (firstMoveUsed === undefined) throw new Error('no moveUsed events');
+    const firstMoveUsedEvt = out.events[firstMoveUsed];
+    expect(firstMoveUsedEvt?.type).toBe('moveUsed');
+    if (firstMoveUsedEvt?.type !== 'moveUsed') throw new Error('unreachable');
+    // Player is faster (13 > 11) → first mover is player.
+    expect(firstMoveUsedEvt.side).toBe('player');
+
+    // Slice covering the player's mover events (until next moveUsed or end).
+    const secondMoveUsed = moveUsedIndices[1];
+    const sliceEnd =
+      secondMoveUsed !== undefined ? secondMoveUsed : out.events.length;
+    const playerSlice = out.events.slice(firstMoveUsed, sliceEnd);
+
+    // Order assertion: moveUsed(player) → superEffective → damageDealt(enemy) → hpChanged(enemy).
+    const seIdx = playerSlice.findIndex((e) => e.type === 'superEffective');
+    const ddIdx = playerSlice.findIndex(
+      (e) => e.type === 'damageDealt' && e.side === 'enemy',
+    );
+    const hpIdx = playerSlice.findIndex(
+      (e) => e.type === 'hpChanged' && e.side === 'enemy',
+    );
+    expect(seIdx).toBeGreaterThan(0);
+    expect(ddIdx).toBeGreaterThan(seIdx);
+    expect(hpIdx).toBeGreaterThan(ddIdx);
+
+    // No crit event in this slice (we forced no-crit).
+    const critIdx = playerSlice.findIndex((e) => e.type === 'crit');
+    expect(critIdx).toBe(-1);
+  });
+});
+
+describe('Reducer M5: auto-advance terminates at user-input phase or battleOver', () => {
+  it('returned phase is selecting or battleOver, never an auto-phase', () => {
+    const state = makeInitialBattleState({
+      player: makeCharmander(),
+      enemy: makeBulbasaur(),
+    });
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = createRng(1);
+    const out = reducer(
+      state,
+      { type: 'pickMove', moveIndex: 0 },
+      rng,
+      ctx,
+    );
+    expect(['selecting', 'battleOver']).toContain(out.state.phase);
+    // Explicitly NOT one of the auto-phases.
+    const autoPhases = [
+      'resolving',
+      'animatingPlayer',
+      'animatingEnemy',
+      'turnEnd',
+      'faintCheck',
+      'enemyFaintReward',
+    ];
+    expect(autoPhases).not.toContain(out.state.phase);
+  });
+});
+
+describe('Reducer M6: input state is not mutated (purity)', () => {
+  it('reducer returns fresh state — input snapshot deep-equals original after call', () => {
+    const state = makeInitialBattleState({
+      player: makeCharmander(),
+      enemy: makeBulbasaur(),
+    });
+    const snapshot = structuredClone(state);
+    const ctx = { typeChart: makeFixtureChart() };
+    const rng = createRng(0x42);
+    reducer(state, { type: 'pickMove', moveIndex: 0 }, rng, ctx);
+    expect(state).toEqual(snapshot);
+  });
+});
+
+// Reference scripted-rng + BattleEvent so TS keeps them considered used.
+void scriptedRng;
+type _BattleEventRef = BattleEvent;
+void (null as unknown as _BattleEventRef | null);

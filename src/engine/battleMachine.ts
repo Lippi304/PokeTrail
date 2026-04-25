@@ -1,29 +1,51 @@
 // src/engine/battleMachine.ts
-// FSM skeleton for Phase 2: BattlePhase × BattleAction lookup + reducer entry.
+// Phase-2 reducer: 1v1 turn loop with full event-stream emission.
 // Engine-pure: no react, no Math.random, no Date.now, no src/data/** imports.
 //
-// RNG consumption order per turn (load-bearing for save/replay determinism, locked in
-// 02-RESEARCH §"Pitfall 1"):
-//   1) rng.chance(0.5) — ONLY if speed tie (resolveOrder, Plan 02-02)
-//   2) For first mover:
-//        2a) rng.next()         — accuracy (rollAccuracy)
-//        2b) rng.chance(1/24)   — crit (calculateDamage, only if hit + non-immune + non-status)
-//        2c) rng.next()         — random factor (calculateDamage, same conditions)
-//   3) For second mover (only if not fainted by first): same 2a-2c
-//   4) rng.nextInt(...)         — AI move pick on next selecting-entry (selectMove, Plan 02-02)
+// RNG consumption order per turn (load-bearing for save/replay determinism,
+// locked in 02-RESEARCH §"Pitfall 1" + reaffirmed in 02-02-PLAN execution_notes):
 //
-// This file (Plan 02-01) ships the type union + isLegal + reducer entry. Real handlers
-// (handleSelecting, handleResolving, handleFaintCheck, etc.) come in Plan 02-02 by
-// REPLACING the per-phase `throw new Error('not implemented')` branches in step().
+//   For each `pickMove` dispatch from `selecting`, the reducer consumes the
+//   stream in this exact order:
+//
+//     1) AI move pick: rng.nextInt(0, enemy.moves.length - 1)            (1 step)
+//        — done at the START of handleResolving, before resolveOrder.
+//     2) Speed-tie: rng.chance(0.5)                                       (1 step,
+//        ONLY if playerSpeed === enemySpeed and priorities are equal)
+//     3) For first mover (per resolveOrder):
+//          3a) accuracy: rng.next() (rollAccuracy)                        (1 step,
+//              skipped if move.accuracy === null)
+//          3b) crit:    rng.chance(1/24) inside calculateDamage           (1 step,
+//              ONLY if hit + non-status + non-immune)
+//          3c) random:  rng.next() inside calculateDamage                 (1 step,
+//              same conditions as 3b)
+//     4) For second mover (only if NOT KO'd by first): same 3a-3c.
+//
+// Event-order contract per mover (Pattern 3 from 02-RESEARCH):
+//
+//   moveUsed
+//   → moveMissed | (crit?) → (superEffective | notVeryEffective | noEffect)?
+//                          → damageDealt → hpChanged → (fainted)?
+//
+// Plan 02-03's integration test will assert this stream byte-for-byte.
 
+import { produce } from 'immer';
 import type {
   BattleAction,
   BattleEvent,
+  BattleParticipant,
   BattlePhase,
   BattleState,
+  MoveLike,
+  Side,
   TypeChart,
 } from './types';
 import type { RNG } from './rng';
+import { calculateDamage } from './damage';
+import { rollAccuracy } from './accuracy';
+import { getTypeMultiplier } from './typeChart';
+import { resolveOrder } from './battleResolution';
+import { selectMove } from './ai';
 
 type ActionType = BattleAction['type'];
 
@@ -52,12 +74,7 @@ export function isLegal(phase: BattlePhase, action: BattleAction): boolean {
 
 /**
  * External context the reducer needs. Chart-as-parameter per Phase-1 D-14: the
- * engine never imports from src/data/**, callers reach the data layer.
- *
- * Future-Phase fields (deferred):
- *   - Phase 5+ may add `moves: ReadonlyMap<string, MoveLike>` once moves move
- *     off the participant; not needed in Phase 2 (D-25 / A1).
- *   - Phase 6 will add an `items` registry.
+ * engine never imports from src/data/**; callers reach the data layer.
  */
 export interface BattleContext {
   typeChart: TypeChart;
@@ -71,13 +88,10 @@ export interface ReducerOutput {
 
 /**
  * Pure reducer entry. Throws on illegal action (fail-fast, A6) so UI bugs
- * surface loudly during development. Auto-advances through "internal" phases
+ * surface loudly during development. Auto-advances through internal phases
  * (resolving / animating* / turnEnd / faintCheck / enemyFaintReward) until the
- * machine settles in a phase that requires user input.
- *
- * Plan 02-01 ships the entry + dispatch; per-phase `step()` handlers throw
- * "not implemented in skeleton" — Plan 02-02 replaces them with real logic
- * and will widen the `step()` signature to (state, action, rng, ctx, events).
+ * machine settles in a phase that requires user input (`selecting` /
+ * `forceSwitch`) or terminates (`battleOver`).
  */
 export function reducer(
   state: BattleState,
@@ -89,56 +103,274 @@ export function reducer(
     throw new Error(`Illegal action ${action.type} in phase ${state.phase}`);
   }
   const events: BattleEvent[] = [];
-  // Skeleton dispatch: only `state.phase` is needed because every non-terminal
-  // case throws and `battleOver` returns state unchanged. Plan 02-02 will pass
-  // action/rng/ctx/events through to real handlers and let the auto-advance
-  // loop below converge to a user-input phase.
-  let next = step(state);
-  while (isAutoPhase(next.phase) && next.phase !== state.phase) {
-    next = step(next);
+  // Initial step uses the user-supplied action.
+  let next = step(state, action, rng, ctx, events);
+  // Auto-advance: each internal phase consumes a synthetic `continue`. Stop
+  // when the phase no longer auto-advances (battleOver / selecting / forceSwitch)
+  // OR when no transition occurred (defensive — should never happen with the
+  // current handlers but prevents pathological infinite loops).
+  while (isAutoPhase(next.phase)) {
+    const before = next.phase;
+    next = step(next, { type: 'continue' }, rng, ctx, events);
+    if (next.phase === before) {
+      throw new Error(
+        `Reducer auto-advance stuck in phase ${before} — no transition occurred`,
+      );
+    }
   }
-  // Reference rng/ctx/events here so the typed parameters are observable to
-  // callers + future maintainers; the values are not consumed in the skeleton.
-  void rng;
-  void ctx;
-  void events;
   return { state: next, events };
 }
 
 /**
- * Plan-02-01 SKELETON: every non-terminal phase throws "not implemented" so
- * callers know they hit an unwired branch. Plan 02-02 will REPLACE each
- * `throw` with a real handler call and widen the signature to also receive
- * (action, rng, ctx, events).
+ * Per-phase dispatch. Each non-terminal handler returns the next state and
+ * may push events into the shared events array.
  *
  * The default branch uses `assertNever` to guarantee at compile time that any
  * future BattlePhase variant is added here too.
  */
-function step(state: BattleState): BattleState {
+function step(
+  state: BattleState,
+  action: BattleAction,
+  rng: RNG,
+  ctx: BattleContext,
+  events: BattleEvent[],
+): BattleState {
   switch (state.phase) {
     case 'selecting':
-      throw new Error('phase selecting not implemented in skeleton (Plan 02-02)');
+      return handleSelecting(state, action, events);
     case 'resolving':
-      throw new Error('phase resolving not implemented in skeleton (Plan 02-02)');
+      return handleResolving(state, rng, ctx, events);
     case 'animatingPlayer':
-      throw new Error('phase animatingPlayer not implemented in skeleton (Plan 02-02)');
+      return advance(state, 'animatingEnemy');
     case 'animatingEnemy':
-      throw new Error('phase animatingEnemy not implemented in skeleton (Plan 02-02)');
+      return advance(state, 'turnEnd');
     case 'turnEnd':
-      throw new Error('phase turnEnd not implemented in skeleton (Plan 02-02)');
+      return handleTurnEnd(state, events);
     case 'faintCheck':
-      throw new Error('phase faintCheck not implemented in skeleton (Plan 02-02)');
+      return handleFaintCheck(state, events);
     case 'forceSwitch':
-      throw new Error('phase forceSwitch not implemented in skeleton (Plan 02-02)');
+      // Phase 5+ wires multi-Pokémon teams. In Phase-2 1v1 scope this is
+      // unreachable: handleFaintCheck routes a fainted player straight to
+      // battleOver instead of forceSwitch. Kept for type-exhaustiveness.
+      throw new Error('phase forceSwitch not implemented in Phase 2 1v1 scope');
     case 'enemyFaintReward':
-      throw new Error('phase enemyFaintReward not implemented in skeleton (Plan 02-02)');
+      // Phase 4 (XP/level-up) wires this. Phase-2 1v1 path goes through
+      // faintCheck → battleOver and never lands here.
+      throw new Error(
+        'phase enemyFaintReward not implemented in Phase 2 (XP comes Phase 4)',
+      );
     case 'battleOver':
-      // Terminal — never executes (battleOver has no legal actions, isLegal throws first).
-      // Exists for type-exhaustiveness only; coverage tools may flag it as dead — intentional.
+      // Terminal — never executes (battleOver has no legal actions, isLegal
+      // throws first). Exists for type-exhaustiveness only.
       return state;
     default:
       return assertNever(state.phase);
   }
+}
+
+// -----------------------------------------------------------------------------
+// Handlers
+// -----------------------------------------------------------------------------
+
+function handleSelecting(
+  state: BattleState,
+  action: BattleAction,
+  events: BattleEvent[],
+): BattleState {
+  if (action.type !== 'pickMove') {
+    // switchTo / useItem / run are legal per LEGAL_ACTIONS but not implemented
+    // until Phase 5/6/4 respectively. Throw so callers don't silently no-op.
+    throw new Error(
+      `${action.type} not implemented in Phase 2 (1v1 + pickMove only)`,
+    );
+  }
+  events.push({ type: 'turnStart', turnNumber: state.turnNumber });
+  return produce(state, (draft) => {
+    draft.pendingPlayerAction = {
+      type: 'pickMove',
+      moveIndex: action.moveIndex,
+    };
+    draft.phase = 'resolving';
+  });
+}
+
+function handleResolving(
+  state: BattleState,
+  rng: RNG,
+  ctx: BattleContext,
+  events: BattleEvent[],
+): BattleState {
+  const pending = state.pendingPlayerAction;
+  if (pending === null) {
+    throw new Error('handleResolving: no pendingPlayerAction set');
+  }
+
+  const playerMove = state.combatants.player.moves[pending.moveIndex];
+  if (playerMove === undefined) {
+    throw new Error(
+      `handleResolving: player has no move at index ${pending.moveIndex}`,
+    );
+  }
+
+  // RNG step 1: AI pick. Done BEFORE resolveOrder so the counter position
+  // for speed-tie remains predictable (locked in Plan 02-02 execution_notes).
+  const enemyMoveIndex = selectMove(state, rng, 'random');
+  const enemyMove = state.combatants.enemy.moves[enemyMoveIndex];
+  if (enemyMove === undefined) {
+    throw new Error(
+      `handleResolving: enemy has no move at index ${enemyMoveIndex}`,
+    );
+  }
+
+  // RNG step 2 (only on speed-tie): resolveOrder consumes 1 chance() if needed.
+  const order = resolveOrder(
+    playerMove,
+    enemyMove,
+    state.combatants.player.speed,
+    state.combatants.enemy.speed,
+    rng,
+  );
+
+  // Per-mover working state — we mutate via Immer at the end.
+  // Use a mutable copy of HP so we can apply mid-turn faint check (Pitfall 2)
+  // without committing to Immer's draft until done.
+  let playerHp = state.combatants.player.hp;
+  let enemyHp = state.combatants.enemy.hp;
+
+  for (const side of order) {
+    // Mid-turn faint check — Pitfall 2. If the would-be mover already fainted
+    // (hp <= 0), skip its move entirely.
+    const isPlayerMover = side === 'player';
+    const moverHp = isPlayerMover ? playerHp : enemyHp;
+    if (moverHp <= 0) continue;
+
+    const attacker: BattleParticipant = isPlayerMover
+      ? state.combatants.player
+      : state.combatants.enemy;
+    const defender: BattleParticipant = isPlayerMover
+      ? state.combatants.enemy
+      : state.combatants.player;
+    const move: MoveLike = isPlayerMover ? playerMove : enemyMove;
+    const moveName = move.name ?? '???';
+
+    events.push({ type: 'moveUsed', side, moveName });
+
+    // RNG step 3a: accuracy.
+    const hit = rollAccuracy(move.accuracy ?? null, rng);
+    if (!hit) {
+      events.push({ type: 'moveMissed', side, moveName });
+      continue;
+    }
+
+    // Status / no-power moves: skip damage path entirely (no further RNG).
+    if (move.damageClass === 'status' || move.power === null) {
+      continue;
+    }
+
+    // Type effectiveness (no RNG).
+    const typeMult = getTypeMultiplier(
+      move.type,
+      defender.types,
+      ctx.typeChart,
+    );
+
+    // RNG steps 3b + 3c: crit + random factor inside calculateDamage. Type
+    // immunity (typeMult === 0) short-circuits inside calculateDamage WITHOUT
+    // consuming RNG — so we mirror that branch here for events, but the RNG
+    // contract still holds (no consumption on full immunity).
+    const result = calculateDamage({
+      attacker,
+      defender,
+      move,
+      typeMultiplier: typeMult,
+      rng,
+    });
+
+    // Event order per mover (Pattern 3): crit → effectiveness → damageDealt → hpChanged → fainted.
+    if (result.crit) {
+      events.push({ type: 'crit', side });
+    }
+
+    if (typeMult === 0) {
+      events.push({ type: 'noEffect' });
+    } else if (typeMult >= 2) {
+      events.push({ type: 'superEffective', multiplier: typeMult });
+    } else if (typeMult > 0 && typeMult < 1) {
+      events.push({ type: 'notVeryEffective', multiplier: typeMult });
+    }
+    // typeMult === 1 → no effectiveness event.
+
+    const defenderSide: Side = isPlayerMover ? 'enemy' : 'player';
+    const defenderHpBefore = defenderSide === 'player' ? playerHp : enemyHp;
+    const newHp = Math.max(0, defenderHpBefore - result.damage);
+
+    events.push({ type: 'damageDealt', side: defenderSide, amount: result.damage });
+    events.push({
+      type: 'hpChanged',
+      side: defenderSide,
+      from: defenderHpBefore,
+      to: newHp,
+      max: defender.maxHp,
+    });
+
+    if (defenderSide === 'player') {
+      playerHp = newHp;
+    } else {
+      enemyHp = newHp;
+    }
+
+    if (newHp === 0) {
+      events.push({ type: 'fainted', side: defenderSide });
+    }
+  }
+
+  // Commit HP changes + bookkeeping in one Immer pass.
+  return produce(state, (draft) => {
+    draft.combatants.player.hp = playerHp;
+    draft.combatants.enemy.hp = enemyHp;
+    draft.pendingPlayerAction = null;
+    draft.turnNumber = state.turnNumber + 1;
+    draft.phase = 'animatingPlayer';
+  });
+}
+
+function handleTurnEnd(
+  state: BattleState,
+  events: BattleEvent[],
+): BattleState {
+  // turnNumber was incremented in handleResolving; the turn that just ended
+  // is the previous one.
+  events.push({ type: 'turnEnd', turnNumber: state.turnNumber - 1 });
+  return advance(state, 'faintCheck');
+}
+
+function handleFaintCheck(
+  state: BattleState,
+  events: BattleEvent[],
+): BattleState {
+  // Phase-2 1v1: a fainted combatant means battleOver immediately — no
+  // forceSwitch path (no party). Phase 5 will add `if livingParty.length > 0
+  // → forceSwitch`.
+  if (state.combatants.player.hp === 0) {
+    events.push({ type: 'battleEnded', winner: 'enemy' });
+    return advance(state, 'battleOver');
+  }
+  if (state.combatants.enemy.hp === 0) {
+    events.push({ type: 'battleEnded', winner: 'player' });
+    return advance(state, 'battleOver');
+  }
+  // Both alive — start next turn.
+  return advance(state, 'selecting');
+}
+
+// -----------------------------------------------------------------------------
+// Helpers
+// -----------------------------------------------------------------------------
+
+function advance(state: BattleState, nextPhase: BattlePhase): BattleState {
+  return produce(state, (draft) => {
+    draft.phase = nextPhase;
+  });
 }
 
 /** Compile-time exhaustiveness check; throws at runtime if the type system was bypassed. */
