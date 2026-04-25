@@ -498,102 +498,147 @@ void (null as unknown as _BattleEventRef | null);
 // -----------------------------------------------------------------------------
 // Plan 02-03: Charmander vs Bulbasaur 1v1 integration scenario (Phase-2 ENG-06 SC#2)
 //
-// PROBE-RUN STAGE: This describe is intentionally instrumented with a
-// `console.log('CAPTURED:', ...)` and uses soft asserts (`expect.any(Number)`,
-// shape-only checks). Task 2 of this plan REPLACES the soft asserts with hard
-// locks captured from this run's stdout output (Wave-0 probe-then-lock pattern,
-// adapted from Phase-1 `golden-baseline.ts`).
+// SCENARIO_SEED: 0xC0FFEE  (chosen per 02-CONTEXT §Specifics; the 4 fallback seeds
+// from the plan — 0xBADA55, 0xFEEDBEE5, 0x1337, 0x2A — were tested during the
+// probe-run stage and all produce the same 2-iteration outcome shape because
+// Charmander's Ember vs grass/poison Bulbasaur is matchup-determined, not
+// seed-sensitive at these Lvl-5 stats).
 //
-// SCENARIO_SEED: 0xC0FFEE  (chosen per 02-CONTEXT §Specifics; falls back to
-// 0xBADA55 / 0xFEEDBEE5 / 0x1337 / 0x2A if the probe-run fails sanity checks
-// in 02-03-PLAN Task 1).
+// Locked from probe-run on 2026-04-25. If this test fails after a battleMachine.ts
+// (or upstream rng/damage/accuracy/typeChart/ai/battleResolution) change, the
+// most likely causes (in order):
+//   (1) RNG consumption order changed — re-read 02-RESEARCH §Pitfall 1 +
+//       battleMachine.ts file header.
+//   (2) Event emission order changed — re-read 02-RESEARCH §Pattern 3.
+//   (3) Auto-advance loop changed — re-read 02-RESEARCH §Pattern 2.
+//   (4) Damage / type-multiplier / fixture stats changed — locked HPs will drift.
+//   (5) Intentional behavior change — re-run the probe-run pattern (revert to
+//       soft asserts, capture new values, replace hard asserts) in two atomic
+//       commits so the audit trail is preserved.
 // -----------------------------------------------------------------------------
+
+/**
+ * Helper: run the locked Charmander-vs-Bulbasaur scenario to completion under a
+ * given seed. Returns the final state, full event stream, RNG counter, and
+ * turn-loop iteration count. Used by all three it-blocks below.
+ */
+function runCharmanderVsBulbasaurScenario(seed: number): {
+  state: BattleState;
+  events: BattleEvent[];
+  rngCounter: number;
+  turnIterations: number;
+} {
+  const rng = createRng(seed);
+  const ctx = { typeChart: makeFixtureChart() };
+  let state: BattleState = makeInitialBattleState({
+    player: makeCharmander(),
+    enemy: makeBulbasaur(),
+  });
+  const events: BattleEvent[] = [];
+  let turnIterations = 0;
+  const MAX_TURNS = 100;
+  while (state.phase !== 'battleOver') {
+    if (turnIterations > MAX_TURNS) {
+      throw new Error(
+        `Battle did not end within ${MAX_TURNS} turns — likely infinite loop`,
+      );
+    }
+    const action: BattleAction =
+      state.phase === 'selecting'
+        ? { type: 'pickMove', moveIndex: 0 }
+        : { type: 'continue' };
+    const out = reducer(state, action, rng, ctx);
+    state = out.state;
+    events.push(...out.events);
+    turnIterations++;
+  }
+  return { state, events, rngCounter: rng.counter, turnIterations };
+}
+
+const SCENARIO_SEED = 0xc0ffee;
 
 describe('Charmander vs Bulbasaur 1v1 integration scenario (Phase-2 ENG-06 SC#2)', () => {
   it('runs to battleOver under fixed seed with deterministic outcome', () => {
-    const SEED = 0xc0ffee;
-    const rng = createRng(SEED);
-    const ctx = { typeChart: makeFixtureChart() };
-    const initial = makeInitialBattleState({
-      player: makeCharmander(),
-      enemy: makeBulbasaur(),
-    });
+    const { state, events, rngCounter, turnIterations } =
+      runCharmanderVsBulbasaurScenario(SCENARIO_SEED);
 
-    let state: BattleState = initial;
-    const allEvents: BattleEvent[] = [];
-    let turnCount = 0;
-    const MAX_TURNS = 100; // safety net — should never approach this
-
-    while (state.phase !== 'battleOver') {
-      if (turnCount > MAX_TURNS) {
-        throw new Error(
-          `Battle did not end within ${MAX_TURNS} turns — likely infinite loop`,
-        );
-      }
-      const action: BattleAction =
-        state.phase === 'selecting'
-          ? { type: 'pickMove', moveIndex: 0 } // player always picks Ember
-          : { type: 'continue' };
-      const out = reducer(state, action, rng, ctx);
-      state = out.state;
-      allEvents.push(...out.events);
-      turnCount++;
-    }
-
-    // PROBE-RUN INSTRUMENTATION: capture exact values for Task 2 hard-lock.
-    const ended = allEvents.find((e) => e.type === 'battleEnded');
-    const eventHistogram = allEvents.reduce<Record<string, number>>(
-      (acc, e) => {
-        acc[e.type] = (acc[e.type] ?? 0) + 1;
-        return acc;
-      },
-      {},
-    );
-    console.log(
-      'CAPTURED:',
-      JSON.stringify(
-        {
-          phase: state.phase,
-          winner: ended,
-          playerHp: state.combatants.player.hp,
-          enemyHp: state.combatants.enemy.hp,
-          turnNumber: state.turnNumber,
-          rngCounter: rng.counter,
-          eventCount: allEvents.length,
-          turnIterations: turnCount,
-          eventHistogram,
-        },
-        null,
-        2,
-      ),
-    );
-
-    // Soft asserts during probe-run — these MUST pass for the lock-step to proceed.
+    // === HARD LOCKS (captured from probe-run on 2026-04-25; ANY change = drift) ===
     expect(state.phase).toBe('battleOver');
-    expect(ended).toBeDefined();
-    expect(state.combatants.player.hp).toEqual(expect.any(Number));
-    expect(state.combatants.enemy.hp).toEqual(expect.any(Number));
-    // exactly one combatant should be at 0 HP, the other above 0
-    expect(state.combatants.player.hp + state.combatants.enemy.hp).toBeGreaterThan(0);
-    expect(
-      state.combatants.player.hp === 0 || state.combatants.enemy.hp === 0,
-    ).toBe(true);
-    expect(allEvents.length).toBeGreaterThan(5); // at least one full turn happened
-    expect(turnCount).toBeLessThan(MAX_TURNS);
 
-    // Sanity: histogram structural invariants.
-    expect(eventHistogram.battleEnded).toBe(1);
-    expect(eventHistogram.turnStart).toBe(eventHistogram.turnEnd);
-    // Note: with the Phase-2 fixture stats (Ember 40 power × STAB × 2× super-effective
-    // vs 20-HP Bulbasaur, Charmander faster) the OHKO-by-turn-2 outcome is matchup-
-    // determined, not seed-determined. All 5 candidate seeds from 02-CONTEXT
-    // (0xC0FFEE, 0xBADA55, 0xFEEDBEE5, 0x1337, 0x2A) produce 2 turn-iterations.
-    // The 2-iteration scenario still exercises: full FSM cycle (selecting → resolving
-    // → animating* → turnEnd → faintCheck → selecting → … → battleOver), both movers
-    // (player + enemy) actually using moves in turn 1, mid-turn faint check skipping
-    // enemy in turn 2, and the full event histogram including superEffective,
-    // notVeryEffective, fainted, battleEnded. Lowered floor to 2 (= at least one full
-    // turn with both movers + a second turn that produces the KO).
-    expect(turnCount).toBeGreaterThanOrEqual(2);
+    // (1) Winner — player wins (Charmander OHKOs Bulbasaur via 2× super-effective Ember).
+    const ended = events.find((e) => e.type === 'battleEnded');
+    expect(ended).toEqual({ type: 'battleEnded', winner: 'player' });
+
+    // (2) Final HPs — player took some chip damage from Bulbasaur's turn-1 hit.
+    expect(state.combatants.player.hp).toBe(16);
+    expect(state.combatants.enemy.hp).toBe(0);
+
+    // (3) Final turn number — incremented after each handleResolving pass.
+    expect(state.turnNumber).toBe(3);
+
+    // (4) RNG counter — drift here means upstream RNG consumption order changed
+    // (Pitfall 1: AI selectMove → resolveOrder speed-tie → mover1 acc/crit/random
+    // → mover2 acc/crit/random). Per turn baseline = 7 RNG steps when both movers
+    // act and no speed-tie / no immunity. Turn 1 (both act) = 7; turn 2 (player
+    // OHKOs first, mid-turn faint check skips enemy) = 4 (1 AI pick + 3 player
+    // acc/crit/random). 7 + 4 = 11 — captured value.
+    expect(rngCounter).toBe(11);
+
+    // (5) Total event count — adding/removing any event in any handler fails here.
+    expect(events).toHaveLength(18);
+
+    // (6) Turn-loop iterations — one per `while (phase !== 'battleOver')` pass.
+    expect(turnIterations).toBe(2);
+
+    // (7) Event histogram — every event type appears exactly the expected count.
+    // Pattern-3 emission per mover: moveUsed → (moveMissed | (crit?) →
+    // (effectiveness?) → damageDealt → hpChanged → (fainted?))
+    const histogram = events.reduce<Record<string, number>>((acc, e) => {
+      acc[e.type] = (acc[e.type] ?? 0) + 1;
+      return acc;
+    }, {});
+    expect(histogram).toEqual({
+      turnStart: 2,
+      moveUsed: 3,
+      superEffective: 2,
+      damageDealt: 3,
+      hpChanged: 3,
+      notVeryEffective: 1,
+      turnEnd: 2,
+      fainted: 1,
+      battleEnded: 1,
+    });
+  });
+
+  it('emits turnStart and turnEnd as a balanced pair every turn', () => {
+    // Independent invariant test — runs the same scenario but only checks
+    // structural health (not exact values). Catches "we emitted turnStart but
+    // forgot turnEnd" bugs even if the locked baseline above passes for a
+    // different reason. Also locks the terminal-event ordering (turnEnd second
+    // to last, battleEnded last) which the histogram doesn't capture by itself.
+    const { events } = runCharmanderVsBulbasaurScenario(SCENARIO_SEED);
+    const starts = events.filter((e) => e.type === 'turnStart').length;
+    const ends = events.filter((e) => e.type === 'turnEnd').length;
+    expect(starts).toBe(ends);
+    expect(events.filter((e) => e.type === 'battleEnded')).toHaveLength(1);
+    expect(events.at(-1)?.type).toBe('battleEnded');
+    // turnEnd must be the second-to-last event (battleEnded is always last).
+    expect(events.at(-2)?.type).toBe('turnEnd');
+  });
+
+  it('proves determinism: identical seed produces identical event stream byte-for-byte', () => {
+    // Catches non-determinism bugs that ALSO happen to match the locked
+    // values above (rare but possible — e.g. a freshly-introduced Math.random
+    // that on its first call produces a value matching the locked behavior).
+    // Two independent createRng instances must yield bitwise-identical results.
+    const a = runCharmanderVsBulbasaurScenario(SCENARIO_SEED);
+    const b = runCharmanderVsBulbasaurScenario(SCENARIO_SEED);
+    expect(a.events).toEqual(b.events);
+    expect(a.rngCounter).toBe(b.rngCounter);
+    expect(a.turnIterations).toBe(b.turnIterations);
+    expect(a.state.combatants.player.hp).toBe(b.state.combatants.player.hp);
+    expect(a.state.combatants.enemy.hp).toBe(b.state.combatants.enemy.hp);
+    expect(a.state.turnNumber).toBe(b.state.turnNumber);
+    expect(a.state.phase).toBe(b.state.phase);
   });
 });
