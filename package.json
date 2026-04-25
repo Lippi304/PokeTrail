@@ -1,0 +1,54 @@
+{
+  "name": "poketrail",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": "^20 || ^22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:engine": "vitest run --project engine",
+    "test:ui": "vitest run --project ui",
+    "test:watch": "vitest",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "fetch:data": "tsx scripts/fetch-pokemon-gen1.ts"
+  },
+  "dependencies": {
+    "immer": "^10",
+    "react": "^19.2",
+    "react-dom": "^19.2",
+    "use-immer": "^0.11",
+    "zod": "^3.23"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2",
+    "@testing-library/dom": "^10",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2",
+    "@types/react-dom": "^19.2",
+    "@vitejs/plugin-react": "^4",
+    "eslint": "^9",
+    "eslint-config-prettier": "^9",
+    "eslint-plugin-react-hooks": "^5",
+    "eslint-plugin-react-refresh": "^0.4",
+    "jsdom": "^25",
+    "prettier": "^3",
+    "tailwindcss": "^4.2",
+    "tsx": "^4",
+    "typescript": "^5.7",
+    "typescript-eslint": "^8",
+    "vite": "^6.4",
+    "vitest": "^2"
+  },
+  "overrides": {
+    "@types/react": "^19.2",
+    "@types/react-dom": "^19.2"
+  }
+}
