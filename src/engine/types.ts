@@ -59,6 +59,19 @@ export interface MoveLike {
    * that omit this field keep compiling unchanged (additive + optional).
    */
   priority?: number;
+  /**
+   * Move accuracy in percent (0–100) per Phase-1 D-09. `null` = always-hit
+   * (Swift-style). Optional + additive: Phase-1 fixtures without accuracy keep
+   * compiling. Reducer reads `move.accuracy ?? null` and forwards to
+   * `rollAccuracy`, which maps `null → always true` and clamps numeric values
+   * to the 70% floor.
+   */
+  accuracy?: number | null;
+  /**
+   * Display name for battle-log strings — `moveUsed` event reads
+   * `move.name ?? '???'`. Optional so Phase-1 numeric-only fixtures still type-check.
+   */
+  name?: string;
 }
 
 // -----------------------------------------------------------------------------
