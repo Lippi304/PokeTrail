@@ -39,9 +39,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   6. Type badges in the design system always show a TEXT label (not color-only); buttons have visible focus rings, 44×44px tap targets, `touch-action: manipulation`, and the layout uses `100dvh`
 **Plans**: 5 plans
 - [x] 01-01-PLAN.md — Toolchain scaffold: Vite 6 + React 19.2 + TS 5.7 strict + Tailwind v4 + Vitest 2 + ESLint 9 with engine-purity rule + Prettier + repo files (FOUND-01..05, FOUND-07)
-- [ ] 01-02-PLAN.md — Pure-TS engine: seedable mulberry32 RNG, type-chart lookup, damage formula with locked overrides, accuracy 70% floor, ≥20 Smogon golden tests (ENG-01..05)
-- [ ] 01-03-PLAN.md — Build-time data pipeline: PokéAPI fetch script, Zod schemas, 151 Pokémon + moves + 15-type chart JSONs, 151 pixel sprites, module-init re-validation (DATA-01..05)
-- [ ] 01-04-PLAN.md — A11y/mobile baseline UI primitives: Button (44×44 + focus ring + touch-manipulation), TypeBadge (text label, 15 types), Disclaimer, AriaLive stub, useMoveHotkeys stub, App.tsx with 100dvh layout + locked D-03 disclaimer footer (A11Y-01..04, MOBILE-01..03)
+- [x] 01-02-PLAN.md — Pure-TS engine: seedable mulberry32 RNG, type-chart lookup, damage formula with locked overrides, accuracy 70% floor, ≥20 Smogon golden tests (ENG-01..05)
+- [x] 01-03-PLAN.md — Build-time data pipeline: PokéAPI fetch script, Zod schemas, 151 Pokémon + moves + 15-type chart JSONs, 151 pixel sprites, module-init re-validation (DATA-01..05)
+- [x] 01-04-PLAN.md — A11y/mobile baseline UI primitives: Button (44×44 + focus ring + touch-manipulation), TypeBadge (text label, 15 types), Disclaimer, AriaLive stub, useMoveHotkeys stub, App.tsx with 100dvh layout + locked D-03 disclaimer footer (A11Y-01..04, MOBILE-01..03)
 - [ ] 01-05-PLAN.md — Vercel deploy: vercel.json with Vite preset + SPA rewrite, deploy on default *.vercel.app subdomain, verify disclaimer served live (FOUND-06)
 **UI hint**: yes
 

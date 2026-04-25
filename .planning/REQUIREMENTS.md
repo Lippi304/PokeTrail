@@ -162,17 +162,17 @@ REQ-IDs follow `[CATEGORY]-[NUMBER]` format. Each requirement is testable, user-
 
 ### A11Y — Accessibility (baseline in Phase 1)
 
-- [ ] **A11Y-01**: Type badges always include the type's text label, not just the color (color-blind support)
-- [ ] **A11Y-02**: All interactive elements have visible focus rings (keyboard navigation)
-- [ ] **A11Y-03**: Number keys 1-4 trigger the corresponding move buttons in battle
-- [ ] **A11Y-04**: Battle log uses `aria-live="polite"` so screen readers announce new messages
+- [x] **A11Y-01**: Type badges always include the type's text label, not just the color (color-blind support)
+- [x] **A11Y-02**: All interactive elements have visible focus rings (keyboard navigation)
+- [x] **A11Y-03**: Number keys 1-4 trigger the corresponding move buttons in battle
+- [x] **A11Y-04**: Battle log uses `aria-live="polite"` so screen readers announce new messages
 - [ ] **A11Y-05**: Lighthouse Accessibility audit scores ≥ 90 (Phase 4 audit)
 
 ### MOBILE — Mobile-Friendly Baseline
 
-- [ ] **MOBILE-01**: All interactive elements have a minimum tap target size of 44×44px
-- [ ] **MOBILE-02**: Layout uses `100dvh` units (not `100vh`) and `viewport-fit=cover` for safe-area handling
-- [ ] **MOBILE-03**: Touch interactions use `touch-action: manipulation` to suppress double-tap zoom
+- [x] **MOBILE-01**: All interactive elements have a minimum tap target size of 44×44px
+- [x] **MOBILE-02**: Layout uses `100dvh` units (not `100vh`) and `viewport-fit=cover` for safe-area handling
+- [x] **MOBILE-03**: Touch interactions use `touch-action: manipulation` to suppress double-tap zoom
 - [ ] **MOBILE-04**: Battle screen renders correctly on iOS Safari and Android Chrome at 375px width (Phase 4 audit)
 
 ### POLISH — Animations, Transitions, PWA
@@ -324,14 +324,14 @@ Each requirement is mapped to exactly one phase by the roadmapper.
 | END-02 | Phase 9 | Pending |
 | END-03 | Phase 9 | Pending |
 | END-04 | Phase 9 | Pending |
-| A11Y-01 | Phase 1 | Pending |
-| A11Y-02 | Phase 1 | Pending |
-| A11Y-03 | Phase 1 | Pending |
-| A11Y-04 | Phase 1 | Pending |
+| A11Y-01 | Phase 1 | Complete |
+| A11Y-02 | Phase 1 | Complete |
+| A11Y-03 | Phase 1 | Complete |
+| A11Y-04 | Phase 1 | Complete |
 | A11Y-05 | Phase 11 | Pending |
-| MOBILE-01 | Phase 1 | Pending |
-| MOBILE-02 | Phase 1 | Pending |
-| MOBILE-03 | Phase 1 | Pending |
+| MOBILE-01 | Phase 1 | Complete |
+| MOBILE-02 | Phase 1 | Complete |
+| MOBILE-03 | Phase 1 | Complete |
 | MOBILE-04 | Phase 11 | Pending |
 | POLISH-01 | Phase 10 | Pending |
 | POLISH-02 | Phase 10 | Pending |
