@@ -7,7 +7,7 @@ import { GEN_ONE_TYPES } from '../types';
 // only the cells we assert against. getTypeMultiplier MUST throw on missing /
 // unknown rather than defaulting silently.
 function makeFixture(
-  overrides: ReadonlyArray<readonly [GenOneType, GenOneType, TypeMultiplier]>,
+  overrides: readonly (readonly [GenOneType, GenOneType, TypeMultiplier])[],
 ): TypeChart {
   const chart = {} as TypeChart;
   for (const a of GEN_ONE_TYPES) {
@@ -25,9 +25,13 @@ function makeFixture(
 const CHART: TypeChart = makeFixture([
   // Single-type cells (mirrors PokéAPI damage_relations for D-06)
   ['water', 'fire', 2],
+  ['water', 'rock', 2],
+  ['water', 'ground', 2],
   ['fire', 'water', 0.5],
   ['fire', 'grass', 2],
   ['grass', 'water', 2],
+  ['grass', 'ground', 2],
+  ['grass', 'rock', 2],
   ['water', 'grass', 0.5],
   ['electric', 'water', 2],
   ['electric', 'flying', 2],
@@ -39,6 +43,7 @@ const CHART: TypeChart = makeFixture([
   ['rock', 'fire', 2],
   ['fighting', 'normal', 2],
   ['fighting', 'rock', 2],
+  ['fighting', 'flying', 0.5],
   ['fighting', 'ghost', 0],
   ['ghost', 'normal', 0],
   ['normal', 'ghost', 0],

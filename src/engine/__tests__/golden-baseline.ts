@@ -119,7 +119,9 @@ function range(
 ): { lo: number; hi: number } {
   return {
     lo: ref(attacker, defender, move, typeMultiplier, crit, 0.85),
-    hi: ref(attacker, defender, move, typeMultiplier, crit, 1.0),
+    // hi uses 0.999985 = 0.85 + 0.9999 * 0.15 to match the scripted RNG value `0.9999`
+    // used in NO_CRIT_HI; rng.next() returns [0,1) so 1.0 itself is unreachable.
+    hi: ref(attacker, defender, move, typeMultiplier, crit, 0.85 + 0.9999 * 0.15),
   };
 }
 
