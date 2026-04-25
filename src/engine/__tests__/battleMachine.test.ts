@@ -494,3 +494,106 @@ describe('Reducer M6: input state is not mutated (purity)', () => {
 void scriptedRng;
 type _BattleEventRef = BattleEvent;
 void (null as unknown as _BattleEventRef | null);
+
+// -----------------------------------------------------------------------------
+// Plan 02-03: Charmander vs Bulbasaur 1v1 integration scenario (Phase-2 ENG-06 SC#2)
+//
+// PROBE-RUN STAGE: This describe is intentionally instrumented with a
+// `console.log('CAPTURED:', ...)` and uses soft asserts (`expect.any(Number)`,
+// shape-only checks). Task 2 of this plan REPLACES the soft asserts with hard
+// locks captured from this run's stdout output (Wave-0 probe-then-lock pattern,
+// adapted from Phase-1 `golden-baseline.ts`).
+//
+// SCENARIO_SEED: 0xC0FFEE  (chosen per 02-CONTEXT §Specifics; falls back to
+// 0xBADA55 / 0xFEEDBEE5 / 0x1337 / 0x2A if the probe-run fails sanity checks
+// in 02-03-PLAN Task 1).
+// -----------------------------------------------------------------------------
+
+describe('Charmander vs Bulbasaur 1v1 integration scenario (Phase-2 ENG-06 SC#2)', () => {
+  it('runs to battleOver under fixed seed with deterministic outcome', () => {
+    const SEED = 0xc0ffee;
+    const rng = createRng(SEED);
+    const ctx = { typeChart: makeFixtureChart() };
+    const initial = makeInitialBattleState({
+      player: makeCharmander(),
+      enemy: makeBulbasaur(),
+    });
+
+    let state: BattleState = initial;
+    const allEvents: BattleEvent[] = [];
+    let turnCount = 0;
+    const MAX_TURNS = 100; // safety net — should never approach this
+
+    while (state.phase !== 'battleOver') {
+      if (turnCount > MAX_TURNS) {
+        throw new Error(
+          `Battle did not end within ${MAX_TURNS} turns — likely infinite loop`,
+        );
+      }
+      const action: BattleAction =
+        state.phase === 'selecting'
+          ? { type: 'pickMove', moveIndex: 0 } // player always picks Ember
+          : { type: 'continue' };
+      const out = reducer(state, action, rng, ctx);
+      state = out.state;
+      allEvents.push(...out.events);
+      turnCount++;
+    }
+
+    // PROBE-RUN INSTRUMENTATION: capture exact values for Task 2 hard-lock.
+    const ended = allEvents.find((e) => e.type === 'battleEnded');
+    const eventHistogram = allEvents.reduce<Record<string, number>>(
+      (acc, e) => {
+        acc[e.type] = (acc[e.type] ?? 0) + 1;
+        return acc;
+      },
+      {},
+    );
+    console.log(
+      'CAPTURED:',
+      JSON.stringify(
+        {
+          phase: state.phase,
+          winner: ended,
+          playerHp: state.combatants.player.hp,
+          enemyHp: state.combatants.enemy.hp,
+          turnNumber: state.turnNumber,
+          rngCounter: rng.counter,
+          eventCount: allEvents.length,
+          turnIterations: turnCount,
+          eventHistogram,
+        },
+        null,
+        2,
+      ),
+    );
+
+    // Soft asserts during probe-run — these MUST pass for the lock-step to proceed.
+    expect(state.phase).toBe('battleOver');
+    expect(ended).toBeDefined();
+    expect(state.combatants.player.hp).toEqual(expect.any(Number));
+    expect(state.combatants.enemy.hp).toEqual(expect.any(Number));
+    // exactly one combatant should be at 0 HP, the other above 0
+    expect(state.combatants.player.hp + state.combatants.enemy.hp).toBeGreaterThan(0);
+    expect(
+      state.combatants.player.hp === 0 || state.combatants.enemy.hp === 0,
+    ).toBe(true);
+    expect(allEvents.length).toBeGreaterThan(5); // at least one full turn happened
+    expect(turnCount).toBeLessThan(MAX_TURNS);
+
+    // Sanity: histogram structural invariants.
+    expect(eventHistogram.battleEnded).toBe(1);
+    expect(eventHistogram.turnStart).toBe(eventHistogram.turnEnd);
+    // Note: with the Phase-2 fixture stats (Ember 40 power × STAB × 2× super-effective
+    // vs 20-HP Bulbasaur, Charmander faster) the OHKO-by-turn-2 outcome is matchup-
+    // determined, not seed-determined. All 5 candidate seeds from 02-CONTEXT
+    // (0xC0FFEE, 0xBADA55, 0xFEEDBEE5, 0x1337, 0x2A) produce 2 turn-iterations.
+    // The 2-iteration scenario still exercises: full FSM cycle (selecting → resolving
+    // → animating* → turnEnd → faintCheck → selecting → … → battleOver), both movers
+    // (player + enemy) actually using moves in turn 1, mid-turn faint check skipping
+    // enemy in turn 2, and the full event histogram including superEffective,
+    // notVeryEffective, fainted, battleEnded. Lowered floor to 2 (= at least one full
+    // turn with both movers + a second turn that produces the KO).
+    expect(turnCount).toBeGreaterThanOrEqual(2);
+  });
+});
