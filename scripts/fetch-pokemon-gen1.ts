@@ -29,11 +29,7 @@ const SPRITE_DIR = 'public/sprites';
 const DATA_DIR = 'src/data';
 const USER_AGENT = 'poketrail-build (https://github.com/lippi304/PokeTrail)';
 
-async function fetchJson<T>(
-  url: string,
-  schema: z.ZodType<T>,
-  attempts = 3,
-): Promise<T> {
+async function fetchJson<T>(url: string, schema: z.ZodType<T>, attempts = 3): Promise<T> {
   let lastErr: unknown = null;
   for (let i = 0; i < attempts; i++) {
     try {
@@ -58,11 +54,7 @@ async function fetchJson<T>(
   );
 }
 
-async function pmap<T, R>(
-  items: readonly T[],
-  n: number,
-  fn: (t: T) => Promise<R>,
-): Promise<R[]> {
+async function pmap<T, R>(items: readonly T[], n: number, fn: (t: T) => Promise<R>): Promise<R[]> {
   const out: R[] = [];
   const queue = items.slice();
   await Promise.all(
@@ -228,9 +220,7 @@ async function main(): Promise<void> {
     const levelUpMoves = p.moves
       .map((m) => {
         const detail = m.version_group_details.find(
-          (d) =>
-            d.version_group.name === 'red-blue' &&
-            d.move_learn_method.name === 'level-up',
+          (d) => d.version_group.name === 'red-blue' && d.move_learn_method.name === 'level-up',
         );
         if (!detail) return null;
         return { name: m.move.name, level: detail.level_learned_at };

@@ -66,12 +66,7 @@ export const MoveSchema = z.object({
 export type Move = z.infer<typeof MoveSchema>;
 export const MoveArraySchema = z.array(MoveSchema);
 
-const TypeMultiplier = z.union([
-  z.literal(0),
-  z.literal(0.5),
-  z.literal(1),
-  z.literal(2),
-]);
+const TypeMultiplier = z.union([z.literal(0), z.literal(0.5), z.literal(1), z.literal(2)]);
 export type TypeMultiplier = z.infer<typeof TypeMultiplier>;
 export const TypeChartSchema = z.record(TypeName, z.record(TypeName, TypeMultiplier));
 export type TypeChart = z.infer<typeof TypeChartSchema>;

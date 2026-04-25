@@ -49,9 +49,8 @@ export function calculateDamage(ctx: DamageContext): DamageResult {
 
   // Bulbapedia base-damage formula.
   const base =
-    Math.floor(
-      Math.floor(((Math.floor((2 * attacker.level) / 5) + 2) * move.power * A) / D) / 50,
-    ) + 2;
+    Math.floor(Math.floor(((Math.floor((2 * attacker.level) / 5) + 2) * move.power * A) / D) / 50) +
+    2;
 
   // D-07: crit ~1/24 chance, ×1.5 multiplier. RNG step 1.
   const crit = rng.chance(1 / 24);

@@ -4,9 +4,9 @@
 export function Disclaimer() {
   return (
     <p className="text-xs text-zinc-500 leading-relaxed">
-      PokeTrail is a non-commercial fan project. Pokémon and all related characters are
-      trademarks of Nintendo / Game Freak / The Pokémon Company. This site is not affiliated
-      with or endorsed by them.
+      PokeTrail is a non-commercial fan project. Pokémon and all related characters are trademarks
+      of Nintendo / Game Freak / The Pokémon Company. This site is not affiliated with or endorsed
+      by them.
     </p>
   );
 }

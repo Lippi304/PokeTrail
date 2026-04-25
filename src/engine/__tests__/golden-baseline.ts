@@ -38,11 +38,11 @@ const c = (
   ...types: GenOneType[]
 ): Combatant => ({ level, attack, defense, spAttack, spDefense, types });
 
-const mv = (
-  power: number | null,
-  type: GenOneType,
-  damageClass: DamageClass,
-): MoveLike => ({ power, type, damageClass });
+const mv = (power: number | null, type: GenOneType, damageClass: DamageClass): MoveLike => ({
+  power,
+  type,
+  damageClass,
+});
 
 type DamageClass = 'physical' | 'special' | 'status';
 
@@ -63,9 +63,8 @@ function ref(
   const A = move.damageClass === 'physical' ? attacker.attack : attacker.spAttack;
   const D = move.damageClass === 'physical' ? defender.defense : defender.spDefense;
   const base =
-    Math.floor(
-      Math.floor(((Math.floor((2 * attacker.level) / 5) + 2) * move.power * A) / D) / 50,
-    ) + 2;
+    Math.floor(Math.floor(((Math.floor((2 * attacker.level) / 5) + 2) * move.power * A) / D) / 50) +
+    2;
   const critMult = crit ? 1.5 : 1;
   const stab = attacker.types.includes(move.type) ? 1.5 : 1;
   const raw = base * critMult * stab * typeMultiplier * randMult;

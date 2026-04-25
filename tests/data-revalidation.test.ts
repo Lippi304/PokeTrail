@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import {
-  PokemonArraySchema,
-  MoveArraySchema,
-  TypeChartSchema,
-} from '../src/data/schemas';
+import { PokemonArraySchema, MoveArraySchema, TypeChartSchema } from '../src/data/schemas';
 
 describe('module-init re-validation (DATA-05, D-19)', () => {
   it('importing src/data/index.ts loads and validates the committed JSON without throwing', async () => {
@@ -16,26 +12,20 @@ describe('module-init re-validation (DATA-05, D-19)', () => {
   });
 
   it('PokemonArraySchema rejects a fixture with missing required fields (safeParse + parse both fail)', () => {
-    const bad: unknown = JSON.parse(
-      readFileSync('tests/fixtures/bad-pokemon.json', 'utf-8'),
-    );
+    const bad: unknown = JSON.parse(readFileSync('tests/fixtures/bad-pokemon.json', 'utf-8'));
     expect(PokemonArraySchema.safeParse(bad).success).toBe(false);
     // parse() (the form used at module-init in src/data/index.ts) MUST throw.
     expect(() => PokemonArraySchema.parse(bad)).toThrow();
   });
 
   it('TypeChartSchema rejects a fixture containing non-Gen-1 types (steel) — parse() throws', () => {
-    const bad: unknown = JSON.parse(
-      readFileSync('tests/fixtures/bad-typechart.json', 'utf-8'),
-    );
+    const bad: unknown = JSON.parse(readFileSync('tests/fixtures/bad-typechart.json', 'utf-8'));
     expect(TypeChartSchema.safeParse(bad).success).toBe(false);
     expect(() => TypeChartSchema.parse(bad)).toThrow();
   });
 
   it('committed pokemon-gen1.json contains exactly 151 entries with no Steel/Dark/Fairy types (D-06)', () => {
-    const raw: unknown = JSON.parse(
-      readFileSync('src/data/pokemon-gen1.json', 'utf-8'),
-    );
+    const raw: unknown = JSON.parse(readFileSync('src/data/pokemon-gen1.json', 'utf-8'));
     const parsed = PokemonArraySchema.parse(raw);
     expect(parsed).toHaveLength(151);
     for (const p of parsed) {
