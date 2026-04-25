@@ -37,7 +37,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. `engine/damage.ts` produces values matching ≥20 Smogon golden test cases, including crits, type effectiveness, STAB, accuracy floor, and min-damage-1
   5. ESLint blocks any `react`/`react-dom` import inside `src/engine/**` and the rule is enforced in CI
   6. Type badges in the design system always show a TEXT label (not color-only); buttons have visible focus rings, 44×44px tap targets, `touch-action: manipulation`, and the layout uses `100dvh`
-**Plans**: TBD
+**Plans**: 5 plans
+- [x] 01-01-PLAN.md — Toolchain scaffold: Vite 6 + React 19.2 + TS 5.7 strict + Tailwind v4 + Vitest 2 + ESLint 9 with engine-purity rule + Prettier + repo files (FOUND-01..05, FOUND-07)
+- [ ] 01-02-PLAN.md — Pure-TS engine: seedable mulberry32 RNG, type-chart lookup, damage formula with locked overrides, accuracy 70% floor, ≥20 Smogon golden tests (ENG-01..05)
+- [ ] 01-03-PLAN.md — Build-time data pipeline: PokéAPI fetch script, Zod schemas, 151 Pokémon + moves + 15-type chart JSONs, 151 pixel sprites, module-init re-validation (DATA-01..05)
+- [ ] 01-04-PLAN.md — A11y/mobile baseline UI primitives: Button (44×44 + focus ring + touch-manipulation), TypeBadge (text label, 15 types), Disclaimer, AriaLive stub, useMoveHotkeys stub, App.tsx with 100dvh layout + locked D-03 disclaimer footer (A11Y-01..04, MOBILE-01..03)
+- [ ] 01-05-PLAN.md — Vercel deploy: vercel.json with Vite preset + SPA rewrite, deploy on default *.vercel.app subdomain, verify disclaimer served live (FOUND-06)
 **UI hint**: yes
 
 ### Phase 2: Battle Engine FSM
@@ -171,7 +176,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation, Toolchain, Engine Core | 0/TBD | Not started | - |
+| 1. Foundation, Toolchain, Engine Core | 0/5 | Not started | - |
 | 2. Battle Engine FSM | 0/TBD | Not started | - |
 | 3. Persistence + State + Title/Starter UI | 0/TBD | Not started | - |
 | 4. First Battle UI (1v1 vs Wild) | 0/TBD | Not started | - |

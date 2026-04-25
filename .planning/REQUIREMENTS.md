@@ -12,13 +12,13 @@ REQ-IDs follow `[CATEGORY]-[NUMBER]` format. Each requirement is testable, user-
 
 ### FOUNDATION — Setup, Toolchain, Deployment
 
-- [ ] **FOUND-01**: Project boots locally via `npm run dev` with Vite 6 + React 19.2 + TypeScript 5.7 strict mode
-- [ ] **FOUND-02**: Tailwind CSS v4.2 is wired via `@tailwindcss/vite`, dark theme is the default with the spec's color palette
-- [ ] **FOUND-03**: TypeScript config enforces `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`, no `any` allowed
-- [ ] **FOUND-04**: Vitest 2 + `@testing-library/react@16` + `jsdom` are configured and `npm test` runs the suite
-- [ ] **FOUND-05**: ESLint flat config blocks `react`/`react-dom` imports under `src/engine/**` (`no-restricted-imports`)
+- [x] **FOUND-01**: Project boots locally via `npm run dev` with Vite 6 + React 19.2 + TypeScript 5.7 strict mode
+- [x] **FOUND-02**: Tailwind CSS v4.2 is wired via `@tailwindcss/vite`, dark theme is the default with the spec's color palette
+- [x] **FOUND-03**: TypeScript config enforces `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`, no `any` allowed
+- [x] **FOUND-04**: Vitest 2 + `@testing-library/react@16` + `jsdom` are configured and `npm test` runs the suite
+- [x] **FOUND-05**: ESLint flat config blocks `react`/`react-dom` imports under `src/engine/**` (`no-restricted-imports`)
 - [ ] **FOUND-06**: Vercel deployment is live from day 1 with auto-deploy on push to main and a legal disclaimer on the title screen
-- [ ] **FOUND-07**: Repo has README, `.gitignore`, `.editorconfig`, and Prettier config
+- [x] **FOUND-07**: Repo has README, `.gitignore`, `.editorconfig`, and Prettier config
 
 ### DATA — Pokémon Data Pipeline
 
@@ -222,13 +222,13 @@ Each requirement is mapped to exactly one phase by the roadmapper.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Pending |
-| FOUND-07 | Phase 1 | Pending |
+| FOUND-07 | Phase 1 | Complete |
 | DATA-01 | Phase 1 | Pending |
 | DATA-02 | Phase 1 | Pending |
 | DATA-03 | Phase 1 | Pending |
